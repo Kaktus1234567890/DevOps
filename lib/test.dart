@@ -34,7 +34,7 @@ class Note {
         inhalt: inhalt,
         title: title,
       ),
-      _ => throw const FormatException('Failed to load notes.'),
+      _ => throw const FormatException('Failed to format notes.'),
     };
   }
 }
