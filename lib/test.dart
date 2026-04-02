@@ -6,7 +6,7 @@ import 'package:http/http.dart' as http;
 
 Future<Note> fetchAlbum() async {
   final response = await http.get(
-    Uri.parse('http://localhost:8081'),
+    Uri.parse('http://localhost:5171'),
     headers: {'Accept': 'application/json'},
   );
 
@@ -35,7 +35,7 @@ class Note {
         inhalt: inhalt,
         title: title,
       ),
-      _ => throw const FormatException('Failed to load album.'),
+      _ => throw const FormatException('Failed to load notes.'),
     };
   }
 }
