@@ -4,38 +4,38 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-Future<Album> fetchAlbum() async {
+Future<Note> fetchAlbum() async {
   final response = await http.get(
-    Uri.parse('http://localhost:8081'),
+    Uri.parse('http://localhost:5171'),
     headers: {'Accept': 'application/json'},
   );
 
   if (response.statusCode == 200) {
     // If the server did return a 200 OK response,
     // then parse the JSON.
-    return Album.fromJson(jsonDecode(response.body) as Map<String, dynamic>);
+    return Note.fromJson(jsonDecode(response.body) as Map<String, dynamic>);
   } else {
     // If the server did not return a 200 OK response,
     // then throw an exception.
-    throw Exception('Failed to load album');
+    throw Exception('Failed to load notes');
   }
 }
 
-class Album {
-  final int userId;
+class Note {
   final int id;
+  final String inhalt;
   final String title;
 
-  const Album({required this.userId, required this.id, required this.title});
+  const Note({required this.id, required this.inhalt, required this.title});
 
-  factory Album.fromJson(Map<String, dynamic> json) {
+  factory Note.fromJson(Map<String, dynamic> json) {
     return switch (json) {
-      {'userId': int userId, 'id': int id, 'title': String title} => Album(
-        userId: userId,
+      {'id': int id, 'inhalt':String inhalt, 'title': String title} => Note(
         id: id,
+        inhalt: inhalt,
         title: title,
       ),
-      _ => throw const FormatException('Failed to load album.'),
+      _ => throw const FormatException('Failed to load notes.'),
     };
   }
 }
@@ -50,12 +50,12 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  late Future<Album> futureAlbum;
+  late Future<Note> futureNote;
 
   @override
   void initState() {
     super.initState();
-    futureAlbum = fetchAlbum();
+    futureNote = fetchAlbum();
   }
 
   @override
@@ -68,8 +68,8 @@ class _MyAppState extends State<MyApp> {
       home: Scaffold(
         appBar: AppBar(title: const Text('Fetch Data Example')),
         body: Center(
-          child: FutureBuilder<Album>(
-            future: futureAlbum,
+          child: FutureBuilder<Note>(
+            future: futureNote,
             builder: (context, snapshot) {
               if (snapshot.hasData) {
                 return Text(snapshot.data!.title);
