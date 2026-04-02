@@ -6,8 +6,7 @@ import 'package:http/http.dart' as http;
 
 Future<Note> fetchAlbum() async {
   final response = await http.get(
-    Uri.parse('http://localhost:5171'),
-    headers: {'Accept': 'application/json'},
+    Uri.parse('http://localhost:5171/api/Notes?id=0'),
   );
 
   if (response.statusCode == 200) {
