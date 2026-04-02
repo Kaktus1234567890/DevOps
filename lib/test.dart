@@ -4,7 +4,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-Future<Note> fetchAlbum() async {
+Future<Note> fetchNote() async {
   final response = await http.get(
     Uri.parse('http://localhost:5171/api/Notes?id=0'),
   );
@@ -54,7 +54,7 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    futureNote = fetchAlbum();
+    futureNote = fetchNote();
   }
 
   @override
