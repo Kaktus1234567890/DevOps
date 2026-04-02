@@ -29,7 +29,7 @@ class Note {
 
   factory Note.fromJson(Map<String, dynamic> json) {
     return switch (json) {
-      {'id': int id, 'inhalt':String inhalt, 'title': String title} => Note(
+      {'id': int id, 'titel': String title, 'inhalt':String inhalt} => Note(
         id: id,
         inhalt: inhalt,
         title: title,
