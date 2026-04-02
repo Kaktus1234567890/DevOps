@@ -1,0 +1,6 @@
+@BestNote_HostAddress = http://localhost:5171
+
+GET {{BestNote_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
