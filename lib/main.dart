@@ -83,9 +83,9 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   @override
-  Future<void> initState () async {
+  void initState () {
     super.initState();
-    Note.noteList = await getAllNotes();
+    getAllNotes();
   }
 
   @override

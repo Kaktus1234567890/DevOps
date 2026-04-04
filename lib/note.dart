@@ -8,7 +8,7 @@ class Note extends StatefulWidget
   final int _id;
   final String _titel;
   final String _inhalt;
-  static List<Note> noteList = List<Note>.empty(growable : true);
+  static List<Note> noteList  = List<Note>.empty(growable: true);
 
   factory Note.fromJson(Map<String, dynamic> json) {
     return switch (json) {
@@ -30,7 +30,7 @@ class _NoteState extends State<Note> {
   {
     deleteNote(id);
     setState(() async {
-      Note.noteList = await getAllNotes();
+      getAllNotes();
     });
   }
 
@@ -79,7 +79,7 @@ class _NoteState extends State<Note> {
                             TextButton(onPressed: () {
                               setState(() async {
                                 await updateNote(widget._id, neuerInhalt, neuerTitel);
-                                Note.noteList = await getAllNotes();
+                                getAllNotes();
                               });
                               Navigator.pop(context);
                             }, child: Text("Ok"))
@@ -93,7 +93,7 @@ class _NoteState extends State<Note> {
                   onPressed: () {
                     setState(() async {
                       await updateNote(widget._id, widget._inhalt, widget._titel);
-                      Note.noteList = await getAllNotes();
+                      getAllNotes();
                     });
                   },
                   icon: Icon(Icons.save)
