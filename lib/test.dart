@@ -4,10 +4,9 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-Future<Note> fetchAlbum() async {
+Future<Note> fetchNote() async {
   final response = await http.get(
-    Uri.parse('http://localhost:5171'),
-    headers: {'Accept': 'application/json'},
+    Uri.parse('http://localhost:5171/api/Notes/one?id=0'),
   );
 
   if (response.statusCode == 200) {
@@ -30,12 +29,12 @@ class Note {
 
   factory Note.fromJson(Map<String, dynamic> json) {
     return switch (json) {
-      {'id': int id, 'inhalt':String inhalt, 'title': String title} => Note(
+      {'id': int id, 'titel': String title, 'inhalt':String inhalt} => Note(
         id: id,
         inhalt: inhalt,
         title: title,
       ),
-      _ => throw const FormatException('Failed to load notes.'),
+      _ => throw const FormatException('Failed to format notes.'),
     };
   }
 }
@@ -55,7 +54,7 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    futureNote = fetchAlbum();
+    futureNote = fetchNote();
   }
 
   @override
