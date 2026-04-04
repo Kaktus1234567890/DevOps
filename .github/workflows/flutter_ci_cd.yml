@@ -10,7 +10,7 @@ jobs:
     runs-on: ubunto-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v5
 
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
@@ -28,7 +28,7 @@ jobs:
         run: flutter build web --release
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v5
         with:
           name: web-release
           path: build/web
