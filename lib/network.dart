@@ -3,11 +3,11 @@ import 'dart:convert';
 import 'package:devops_projekt/note.dart';
 import 'package:http/http.dart' as http;
 
-const String URL =  'http://localhost:5171/api/Notes';
+const String url =  'http://localhost:5171/api/Notes';
 
 Future<http.Response> deleteNote(int id) async {
   final http.Response response = await http.delete(
-    Uri.parse('$URL/one?id=$id'),
+    Uri.parse('$url/one?id=$id'),
     headers: <String, String>{
       'Content-Type':  'charset=UTF-8',
     },
@@ -18,7 +18,7 @@ Future<http.Response> deleteNote(int id) async {
 
 Future<http.Response> updateNote(int id, String inhalt, String titel) async {
   return http.put(
-    Uri.parse('$URL/one?id=$id'),
+    Uri.parse('$url/one?id=$id'),
     headers: <String, String>{
       'Content-Type': 'charset=UTF-8',
     },
@@ -32,7 +32,7 @@ Future<http.Response> updateNote(int id, String inhalt, String titel) async {
 
 Future<http.Response> createNote(String inhalt, String titel) async {
   return http.put(
-    Uri.parse('$URL/one'),
+    Uri.parse('$url/one'),
     headers: <String, String>{
       'Content-Type': 'charset=UTF-8',
     },
@@ -45,7 +45,7 @@ Future<http.Response> createNote(String inhalt, String titel) async {
 
 Future<List<Note>> getAllNotes() async {
   final response = await http.get(
-    Uri.parse('$URL/all'),
+    Uri.parse('$url/all'),
   );
 
   if (response.statusCode == 200) {
