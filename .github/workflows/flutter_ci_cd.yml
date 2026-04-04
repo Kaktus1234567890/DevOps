@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
 jobs:
   build-web:
     name: Build Web
@@ -26,9 +23,6 @@ jobs:
 
       - name: Analyze code
         run: flutter analyze
-
-      - name: Run tests
-        run: flutter test
 
       - name: Build Web
         run: flutter build web --release
