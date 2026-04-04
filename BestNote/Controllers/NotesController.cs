@@ -1,6 +1,7 @@
 ﻿using BestNote.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Net.Http.Headers;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -22,17 +23,22 @@ namespace BestNote.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateNote(BNote note)
+        public IActionResult CreateNote(BNote2 note)
         {
-            notes.Add(note);
+            Response.Headers.Append("Access-Control-Allow-Origin", "*");
+
+            BNote newNote = new(notes.Count, note.titel, note.inhalt);
+            notes.Add(newNote);
             JsonInteracter.Write(notes);
 
-            return CreatedAtAction("GetNote", new {id = note.id}, note);
+            return CreatedAtAction("GetNote", new {id = newNote.id}, newNote);
         }
 
-        [HttpGet]
+        [HttpGet("one")]
         public IActionResult GetNote(long id)
         {
+            Response.Headers.Append("Access-Control-Allow-Origin", "*");
+
             BNote note;
             foreach(BNote n in notes)
             {
@@ -45,6 +51,49 @@ namespace BestNote.Controllers
 
             return NotFound();
         }
+
+        [HttpGet("all")]
+        public IActionResult GetAllNote()
+        {
+            Response.Headers.Append("Access-Control-Allow-Origin", "*");
+            return Ok(notes);
+        }
+
+        [HttpDelete]
+        public IActionResult DeleteOne (int id)
+        {
+            Response.Headers.Append("Access-Control-Allow-Origin", "*");
+            foreach (BNote n in notes)
+            {
+                if(n.id == id)
+                {
+                    notes.Remove(n);
+                    JsonInteracter.Write(notes);
+                    return Ok(notes);
+                }
+            }
+
+            return NotFound();
+        }
+
+        [HttpPut]
+        public IActionResult Update(int id, BNote note)
+        {
+            Response.Headers.Append("Access-Control-Allow-Origin", "*");
+
+            for (int i = 0; i < notes.Count; i++)
+            {
+                if (notes[i].id == id)
+                {
+                    notes[i] = note;
+                    JsonInteracter.Write(notes);
+                    return Ok(notes);
+                }
+            }
+
+            return NotFound();
+        }
+
     }
 
     public class JsonInteracter
