@@ -25,4 +25,10 @@ namespace BestNote.Models
         }
 
     }
+
+    public class BNote2
+    {
+        public string titel { get; set; }
+        public string inhalt { get; set; }
+    }
 }
