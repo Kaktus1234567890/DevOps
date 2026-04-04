@@ -43,7 +43,7 @@ Future<http.Response> createNote(String inhalt, String titel) async {
   );
 }
 
-Future<List<Note>> getAllNotes() async {
+void getAllNotes() async {
   final response = await http.get(
     Uri.parse('$url/all'),
   );
@@ -59,7 +59,8 @@ Future<List<Note>> getAllNotes() async {
         noteList.add(Note.fromJson(dataObject));
       }
 
-    return noteList;
+    Note.noteList = noteList;
+    return;
   } else {
     // If the server did not return a 200 OK response,
     // then throw an exception.
