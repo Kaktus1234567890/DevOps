@@ -10,7 +10,7 @@ on:
 jobs:
   build-web:
     name: Build Web
-    runs-on: ubunto-latest
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
