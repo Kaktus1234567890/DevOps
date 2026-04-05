@@ -9,7 +9,7 @@
     "Parameters": [
       {
         "Name": "note",
-        "Type": "BestNote.Models.BNote",
+        "Type": "BestNote.Models.BNote2",
         "IsRequired": true
       }
     ],
