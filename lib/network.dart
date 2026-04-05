@@ -19,9 +19,6 @@ Future<http.Response> deleteNote(int id) async {
 Future<http.Response> updateNote(int id, String inhalt, String titel) async {
   return http.put(
     Uri.parse('$url/one?id=$id'),
-    headers: <String, String>{
-      'Content-Type': 'charset=UTF-8',
-    },
     body: jsonEncode(<String, dynamic>{
       'id': id,
       'titel' : titel,
@@ -33,9 +30,6 @@ Future<http.Response> updateNote(int id, String inhalt, String titel) async {
 Future<http.Response> createNote(String inhalt, String titel) async {
   return http.put(
     Uri.parse('$url/one'),
-    headers: <String, String>{
-      'Content-Type': 'charset=UTF-8',
-    },
     body: jsonEncode(<String, dynamic>{
       'titel' : titel,
       'inhalt' : inhalt
