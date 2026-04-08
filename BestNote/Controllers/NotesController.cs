@@ -81,7 +81,7 @@ namespace BestNote.Controllers
             return NotFound();
         }
 
-        [HttpPut("{id},{note}")]
+        [HttpPut("{id}")]
         public IActionResult Update(int id, BNote note)
         {
             //Response.Headers.Append("Access-Control-Allow-Origin", "*");

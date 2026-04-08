@@ -19,7 +19,7 @@ Future<http.Response> deleteNote(int id) async {
 
 Future<http.Response> updateNote(int id, String inhalt, String titel) async {
   return http.put(
-    Uri.parse('$url/one?id=$id'),
+    Uri.parse('$url/$id'),
     headers: <String, String>{
       'Content-Type': 'application/json; charset=UTF-8',
     },

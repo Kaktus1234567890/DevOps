@@ -44,7 +44,7 @@
   {
     "ContainingType": "BestNote.Controllers.NotesController",
     "Method": "Update",
-    "RelativePath": "api/Notes/{id},{note}",
+    "RelativePath": "api/Notes/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -57,11 +57,6 @@
       {
         "Name": "note",
         "Type": "BestNote.Models.BNote",
-        "IsRequired": true
-      },
-      {
-        "Name": "note",
-        "Type": "",
         "IsRequired": true
       }
     ],
