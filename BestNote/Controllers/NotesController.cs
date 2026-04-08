@@ -99,7 +99,12 @@ namespace BestNote.Controllers
         {
             Response.Headers.Append("Access-Control-Allow-Origin", "*");
             Response.Headers.Append("Access-Control-Allow-Private-Network", "true");
-            Response.Headers.Append("Access-Control-Allow-Methods", "PUT, OPTIONS, DELETE");
+            //Response.Headers.Append("Access-Control-Allow-Methods", "PUT, OPTIONS, DELETE");
+
+            Response.Headers.Append("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept" );
+            Response.Headers.Append("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+            Response.Headers.Append("Access-Control-Allow-Credentials", "true" );
+            Response.StatusCode = 200;
 
 
             return Ok();
