@@ -37,7 +37,7 @@ Future<http.Response> createNote(String inhalt, String titel) async {
     headers: <String, String>{
       'Content-Type': 'application/json; charset=UTF-8',
     },
-    body: jsonEncode(<String, dynamic>{
+    body: jsonEncode(<String, String>{
       'titel' : titel,
       'inhalt' : inhalt
     }),
