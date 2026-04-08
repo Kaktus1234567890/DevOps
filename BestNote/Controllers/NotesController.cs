@@ -25,24 +25,26 @@ namespace BestNote.Controllers
         [HttpPost]
         public IActionResult CreateNote(BNote2 note)
         {
-            Response.Headers.Append("Access-Control-Allow-Origin", "*");
+            //Response.Headers.Append("Access-Control-Allow-Origin", "*");
+            //Response.Headers.Append("Access-Control-Allow-Methods", "PUT, OPTIONS, DELETE");
 
             BNote newNote = new(notes.Count, note.titel, note.inhalt);
             notes.Add(newNote);
             JsonInteracter.Write(notes);
 
-            return CreatedAtAction("GetNote", new {id = newNote.id}, newNote);
+            return CreatedAtAction("GetNote", new { id = newNote.id }, newNote);
         }
 
         [HttpGet("one")]
         public IActionResult GetNote(long id)
         {
-            Response.Headers.Append("Access-Control-Allow-Origin", "*");
+            //Response.Headers.Append("Access-Control-Allow-Origin", "*");
+            //Response.Headers.Append("Access-Control-Allow-Methods", "PUT, OPTIONS, DELETE");
 
             BNote note;
-            foreach(BNote n in notes)
+            foreach (BNote n in notes)
             {
-                if(n.id == id)
+                if (n.id == id)
                 {
                     note = n;
                     return Ok(note);
@@ -55,14 +57,17 @@ namespace BestNote.Controllers
         [HttpGet("all")]
         public IActionResult GetAllNote()
         {
-            Response.Headers.Append("Access-Control-Allow-Origin", "*");
+            //Response.Headers.Append("Access-Control-Allow-Origin", "*");
+            //Response.Headers.Append("Access-Control-Allow-Methods", "PUT, OPTIONS, DELETE");
             return Ok(notes);
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteOne (int id)
         {
-            Response.Headers.Append("Access-Control-Allow-Origin", "*");
+            //Response.Headers.Append("Access-Control-Allow-Origin", "*");
+            //Response.Headers.Append("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+
             foreach (BNote n in notes)
             {
                 if(n.id == id)
@@ -76,10 +81,11 @@ namespace BestNote.Controllers
             return NotFound();
         }
 
-        [HttpPut]
+        [HttpPut("{id}")]
         public IActionResult Update(int id, BNote note)
         {
-            Response.Headers.Append("Access-Control-Allow-Origin", "*");
+            //Response.Headers.Append("Access-Control-Allow-Origin", "*");
+            //Response.Headers.Append("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
 
             for (int i = 0; i < notes.Count; i++)
             {
@@ -92,6 +98,22 @@ namespace BestNote.Controllers
             }
 
             return NotFound();
+        }
+
+        [HttpOptions]
+        public IActionResult Optionen()
+        {
+            //Response.Headers.Append("Access-Control-Allow-Origin", "*");
+            //Response.Headers.Append("Access-Control-Allow-Private-Network", "true");
+            //Response.Headers.Append("Access-Control-Allow-Methods", "PUT, OPTIONS, DELETE");
+
+            //Response.Headers.Append("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept" );
+            //Response.Headers.Append("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+            //Response.Headers.Append("Access-Control-Allow-Credentials", "true" );
+            //Response.StatusCode = 200;
+
+
+            return Ok();
         }
 
     }

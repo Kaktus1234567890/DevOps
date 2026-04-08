@@ -7,9 +7,10 @@ const String url =  'http://localhost:5171/api/Notes';
 
 Future<http.Response> deleteNote(int id) async {
   final http.Response response = await http.delete(
-    Uri.parse('$url/one?id=$id'),
+    Uri.parse('$url/$id'),
+
     headers: <String, String>{
-      'Content-Type':  'charset=UTF-8',
+      'Content-Type': 'application/json; charset=UTF-8',
     },
   );
 
@@ -18,7 +19,10 @@ Future<http.Response> deleteNote(int id) async {
 
 Future<http.Response> updateNote(int id, String inhalt, String titel) async {
   return http.put(
-    Uri.parse('$url/one?id=$id'),
+    Uri.parse('$url/$id'),
+    headers: <String, String>{
+      'Content-Type': 'application/json; charset=UTF-8',
+    },
     body: jsonEncode(<String, dynamic>{
       'id': id,
       'titel' : titel,
@@ -28,9 +32,12 @@ Future<http.Response> updateNote(int id, String inhalt, String titel) async {
 }
 
 Future<http.Response> createNote(String inhalt, String titel) async {
-  return http.put(
-    Uri.parse('$url/one'),
-    body: jsonEncode(<String, dynamic>{
+  return http.post(
+    Uri.parse('$url/'),
+    headers: <String, String>{
+      'Content-Type': 'application/json; charset=UTF-8',
+    },
+    body: jsonEncode(<String, String>{
       'titel' : titel,
       'inhalt' : inhalt
     }),
@@ -40,6 +47,9 @@ Future<http.Response> createNote(String inhalt, String titel) async {
 void getAllNotes() async {
   final response = await http.get(
     Uri.parse('$url/all'),
+    headers: <String, String>{
+      'Content-Type': 'application/json; charset=UTF-8',
+    },
   );
 
   if (response.statusCode == 200) {
