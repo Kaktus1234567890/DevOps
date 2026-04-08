@@ -80,7 +80,7 @@ class _NoteState extends State<Note> {
                                     labelText: 'Titel',
                                   ),
                                   controller: TextEditingController(text: widget._titel),
-                                  onSubmitted: (data) => neuerTitel = data,
+                                  onChanged: (data) => neuerTitel = data,
                                 ),
                                 TextField(
                                   decoration: InputDecoration(
@@ -88,7 +88,7 @@ class _NoteState extends State<Note> {
                                     labelText: 'Inhalt',
                                   ),
                                   controller: TextEditingController(text: widget._inhalt),
-                                  onSubmitted: (data) => neuerInhalt = data,
+                                  onChanged: (data) => neuerInhalt = data,
                                 )
 
                               ],

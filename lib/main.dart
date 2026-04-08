@@ -54,14 +54,14 @@ class _MyHomePageState extends State<MyHomePage> {
                     border: OutlineInputBorder(),
                     labelText: 'Titel',
                   ),
-                  onSubmitted: (data) => titel = data,
+                  onChanged: (data) => titel = data,
                 ),
                 TextField(
                   decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Inhalt'
                   ),
-                  onSubmitted: (data) => inhalt = data,
+                  onChanged: (data) => inhalt = data,
                 )
               ],
             ),
