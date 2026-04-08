@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "dv/B3/h8p2k=",
+  "dgSpecHash": "ZsS/s/agHxI=",
   "success": true,
-  "projectFilePath": "F:\\WPM\\DevOps\\BestNote\\BestNote\\BestNote.csproj",
+  "projectFilePath": "F:\\WPM\\DevOps\\NotizenOffical\\DevOps\\BestNote\\BestNote.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dave-\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.25\\microsoft.entityframeworkcore.8.0.25.nupkg.sha512",
     "C:\\Users\\dave-\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\8.0.25\\microsoft.entityframeworkcore.abstractions.8.0.25.nupkg.sha512",

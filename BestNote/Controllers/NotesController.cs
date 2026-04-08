@@ -94,6 +94,14 @@ namespace BestNote.Controllers
             return NotFound();
         }
 
+        [HttpOptions]
+        public IActionResult Optionen()
+        {
+            Response.Headers.Append("Access-Control-Allow-Origin", "*");
+
+            return Ok();
+        }
+
     }
 
     public class JsonInteracter
