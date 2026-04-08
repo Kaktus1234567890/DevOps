@@ -38,80 +38,79 @@ class _NoteState extends State<Note> {
   Widget build(BuildContext context) {
 
     return Container(
+      decoration: BoxDecoration(border: BoxBorder.all()),
       child:
       Row(
         children: [
-          Column(
-            children: [
-              IconButton(
-                  onPressed: _delete,
-                  icon: Icon(Icons.delete)
+          Expanded(
+            child: Container(
+              child: Column(
+                children: [
+                  Container(
+                    child:
+                    Text(widget._titel),
+                  ),
+                  Container(
+                    child:
+                    Text(widget._inhalt),
+                  )
+                ],
               ),
-              IconButton(
-                  onPressed: () {
-                    String neuerTitel = "";
-                    String neuerInhalt = "";
-                    showDialog(context: context,
-                        builder: (BuildContext context) => AlertDialog(
-                          content: Column(
-                            children: [
-                              TextField(
-                                decoration: InputDecoration(
-                                  border: OutlineInputBorder(),
-                                  labelText: 'Titel',
-                                ),
-                                controller: TextEditingController(text: widget._titel),
-                                onSubmitted: (data) => neuerTitel = data,
-                              ),
-                              TextField(
-                                decoration: InputDecoration(
-                                  border: OutlineInputBorder(),
-                                  labelText: 'Inhalt',
-                                ),
-                                controller: TextEditingController(text: widget._inhalt),
-                                onSubmitted: (data) => neuerInhalt = data,
-                              )
-
-                            ],
-                          ),
-                          actions: [
-                            TextButton(onPressed: () => Navigator.pop(context), child: Text("Cancel")),
-                            TextButton(onPressed: () {
-                              setState(() async {
-                                await updateNote(widget._id, neuerInhalt, neuerTitel);
-                                getAllNotes();
-                              });
-                              Navigator.pop(context);
-                            }, child: Text("Ok"))
-                          ],
-                        )
-                    );
-                  },
-                  icon: Icon(Icons.edit)
-              ),
-              IconButton(
-                  onPressed: () {
-                    setState(() async {
-                      await updateNote(widget._id, widget._inhalt, widget._titel);
-                      getAllNotes();
-                    });
-                  },
-                  icon: Icon(Icons.save)
-              ),
-            ],
+            ),
           ),
-          Column(
-            children: [
-              Container(
-                child:
-                Text(widget._titel),
-              ),
-              Container(
-                child:
-                Text(widget._inhalt),
-              )
-            ],
-          )
+          Container(
+            decoration: BoxDecoration(border: Border(left: BorderSide())),
+            child: Column(
+              children: [
+                IconButton(
+                    onPressed: _delete,
+                    icon: Icon(Icons.delete)
+                ),
+                IconButton(
+                    onPressed: () {
+                      String neuerTitel = "";
+                      String neuerInhalt = "";
+                      showDialog(context: context,
+                          builder: (BuildContext context) => AlertDialog(
+                            content: Column(
+                              children: [
+                                TextField(
+                                  decoration: InputDecoration(
+                                    border: OutlineInputBorder(),
+                                    labelText: 'Titel',
+                                  ),
+                                  controller: TextEditingController(text: widget._titel),
+                                  onSubmitted: (data) => neuerTitel = data,
+                                ),
+                                TextField(
+                                  decoration: InputDecoration(
+                                    border: OutlineInputBorder(),
+                                    labelText: 'Inhalt',
+                                  ),
+                                  controller: TextEditingController(text: widget._inhalt),
+                                  onSubmitted: (data) => neuerInhalt = data,
+                                )
+
+                              ],
+                            ),
+                            actions: [
+                              TextButton(onPressed: () => Navigator.pop(context), child: Text("Cancel")),
+                              TextButton(onPressed: () {
+                                setState(() async {
+                                  await updateNote(widget._id, neuerInhalt, neuerTitel);
+                                  getAllNotes();
+                                });
+                                Navigator.pop(context);
+                              }, child: Text("Ok"))
+                            ],
+                          )
+                      );
+                    },
+                    icon: Icon(Icons.edit)
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
