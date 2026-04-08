@@ -98,6 +98,9 @@ namespace BestNote.Controllers
         public IActionResult Optionen()
         {
             Response.Headers.Append("Access-Control-Allow-Origin", "*");
+            Response.Headers.Append("Access-Control-Allow-Private-Network", "true");
+            Response.Headers.Append("Access-Control-Allow-Methods", "PUT, OPTIONS, DELETE");
+
 
             return Ok();
         }
