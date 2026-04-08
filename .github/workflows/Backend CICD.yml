@@ -29,5 +29,5 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-artifact@v5
       with:
-        name: web-release
-        path: build/web
+        name: backend-release
+        path: /bin/Debug/net8.0
