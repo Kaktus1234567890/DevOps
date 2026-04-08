@@ -59,7 +59,7 @@ namespace BestNote.Controllers
             return Ok(notes);
         }
 
-        [HttpDelete]
+        [HttpDelete("all")]
         public IActionResult DeleteOne (int id)
         {
             Response.Headers.Append("Access-Control-Allow-Origin", "*");
@@ -76,7 +76,7 @@ namespace BestNote.Controllers
             return NotFound();
         }
 
-        [HttpPut]
+        [HttpPut("all")]
         public IActionResult Update(int id, BNote note)
         {
             Response.Headers.Append("Access-Control-Allow-Origin", "*");
