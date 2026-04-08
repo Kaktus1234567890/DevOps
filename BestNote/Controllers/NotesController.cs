@@ -63,6 +63,8 @@ namespace BestNote.Controllers
         public IActionResult DeleteOne (int id)
         {
             Response.Headers.Append("Access-Control-Allow-Origin", "*");
+            Response.Headers.Append("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+
             foreach (BNote n in notes)
             {
                 if(n.id == id)
@@ -80,6 +82,7 @@ namespace BestNote.Controllers
         public IActionResult Update(int id, BNote note)
         {
             Response.Headers.Append("Access-Control-Allow-Origin", "*");
+            Response.Headers.Append("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
 
             for (int i = 0; i < notes.Count; i++)
             {
