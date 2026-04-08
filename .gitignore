@@ -43,3 +43,4 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+/BestNote/obj/Debug/net8.0/BestNote.sourcelink.json
