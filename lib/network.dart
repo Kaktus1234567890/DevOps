@@ -19,7 +19,7 @@ Future<http.Response> deleteNote(int id) async {
 
 Future<http.Response> updateNote(int id, String inhalt, String titel) async {
   return http.put(
-    Uri.parse('$url/one?id=$id'),
+    Uri.parse('$url/$id'),
     body: jsonEncode(<String, dynamic>{
       'id': id,
       'titel' : titel,

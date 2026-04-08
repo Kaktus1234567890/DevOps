@@ -9,7 +9,7 @@
     "Parameters": [
       {
         "Name": "note",
-        "Type": "BestNote.Models.BNote",
+        "Type": "BestNote.Models.BNote2",
         "IsRequired": true
       }
     ],
@@ -17,8 +17,18 @@
   },
   {
     "ContainingType": "BestNote.Controllers.NotesController",
-    "Method": "DeleteOne",
+    "Method": "Optionen",
     "RelativePath": "api/Notes",
+    "HttpMethod": "OPTIONS",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BestNote.Controllers.NotesController",
+    "Method": "DeleteOne",
+    "RelativePath": "api/Notes/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -26,7 +36,7 @@
       {
         "Name": "id",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -34,7 +44,7 @@
   {
     "ContainingType": "BestNote.Controllers.NotesController",
     "Method": "Update",
-    "RelativePath": "api/Notes",
+    "RelativePath": "api/Notes/{id},{note}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -42,11 +52,16 @@
       {
         "Name": "id",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       },
       {
         "Name": "note",
         "Type": "BestNote.Models.BNote",
+        "IsRequired": true
+      },
+      {
+        "Name": "note",
+        "Type": "",
         "IsRequired": true
       }
     ],
