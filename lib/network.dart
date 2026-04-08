@@ -7,7 +7,8 @@ const String url =  'http://localhost:5171/api/Notes';
 
 Future<http.Response> deleteNote(int id) async {
   final http.Response response = await http.delete(
-    Uri.parse('$url/one?id=$id'),
+    Uri.parse('$url/$id'),
+
     headers: <String, String>{
       'Content-Type':  'charset=UTF-8',
     },
@@ -28,8 +29,8 @@ Future<http.Response> updateNote(int id, String inhalt, String titel) async {
 }
 
 Future<http.Response> createNote(String inhalt, String titel) async {
-  return http.put(
-    Uri.parse('$url/one'),
+  return http.post(
+    Uri.parse('$url/'),
     body: jsonEncode(<String, dynamic>{
       'titel' : titel,
       'inhalt' : inhalt
