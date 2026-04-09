@@ -39,7 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
     String titel = "";
     String inhalt = "";
 
-    setState(() {
+
       showDialog(
         context: context,
         builder: (BuildContext context) =>
@@ -70,9 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 TextButton(
                   onPressed: () {
-                    setState(() {
-                      networkcreateNote(inhalt, titel);
-                    });
+                    createNote(inhalt, titel);
                     Navigator.pop(context);
                   },
                   child: const Text("Ok"),
@@ -80,7 +78,6 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             ),
       );
-    });
   }
 
   @override
