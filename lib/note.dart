@@ -48,8 +48,8 @@ class _NoteState extends State<Note> {
   }
 
   void _update() {
-    String neuerTitel = "";
-    String neuerInhalt = "";
+    String neuerTitel = titel;
+    String neuerInhalt = inhalt;
     showDialog(
       context: context,
       builder: (BuildContext context) => AlertDialog(

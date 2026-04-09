@@ -1,5 +1,3 @@
-// ignore_for_file: unused_import
-
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -83,7 +81,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
-    getAllNotes();
+    refreshNotelist();
   }
 
   @override
@@ -93,7 +91,6 @@ class _MyHomePageState extends State<MyHomePage> {
           child: ListenableBuilder(
             listenable: NoteListProvidor(),
             builder: (BuildContext context, Widget? child) {
-              print("ICH HÖRE");
               return ListView(children: (NoteListProvidor().noteList));
             },
           )

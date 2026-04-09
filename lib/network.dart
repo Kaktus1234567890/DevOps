@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'note.dart';
 import 'package:http/http.dart' as http;
 
@@ -43,7 +42,7 @@ Future<http.Response> networkcreateNote(String inhalt, String titel) async {
   return response;
 }
 
-Future<List<Note>> getAllNotes() async {
+Future<List<Note>> networkgetAllNotes() async {
   final http.Response response =  await http.get(
     Uri.parse('$url/all'),
     headers: <String, String>{
@@ -71,15 +70,20 @@ Future<List<Note>> getAllNotes() async {
 
 Future<void> deleteNote(int id) async {
   await networkdeleteNote(id);
-  NoteListProvidor().noteList = await getAllNotes();
+  NoteListProvidor().noteList = await networkgetAllNotes();
 }
 
 Future<void> updateNote(int id, String inhalt, String titel) async {
   await networkupdateNote(id, inhalt, titel);
-  NoteListProvidor().noteList = await getAllNotes();
+  NoteListProvidor().noteList = await networkgetAllNotes();
 }
 
 Future<void> createNote (String inhalt, String titel) async {
   await networkcreateNote(inhalt, titel);
-  NoteListProvidor().noteList = await getAllNotes();
+  NoteListProvidor().noteList = await networkgetAllNotes();
+}
+
+Future<void> refreshNotelist() async {
+  NoteListProvidor().noteList = await networkgetAllNotes();
+  return;
 }
