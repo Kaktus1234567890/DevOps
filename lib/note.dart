@@ -1,21 +1,38 @@
 import 'package:devops_projekt/network.dart';
 import 'package:flutter/material.dart';
 
-class Note extends StatefulWidget
-{
-  const Note(this._id, this._titel, this._inhalt, {super.key});
+
+class NoteListProvidor /*Singleton*/ with ChangeNotifier{
+  NoteListProvidor._privateConstructor();
+  static final NoteListProvidor _instance = NoteListProvidor._privateConstructor();
+
+  factory NoteListProvidor(){
+    return _instance;
+  }
+
+  List<Note> _noteList = List<Note>.empty(growable: true);
+
+  List<Note> get noteList => _noteList;
+
+  set noteList(List<Note> value) {
+    _noteList = value;
+    notifyListeners();
+  }
+}
+
+class Note extends StatefulWidget with ChangeNotifier {
+  Note(this._id, this._titel, this._inhalt, {super.key});
 
   final int _id;
   final String _titel;
   final String _inhalt;
-  static List<Note> noteList  = List<Note>.empty(growable: true);
 
   factory Note.fromJson(Map<String, dynamic> json) {
     return switch (json) {
-      {'id': int id, 'titel': String title, 'inhalt':String inhalt} => Note(
+      {'id': int id, 'titel': String title, 'inhalt': String inhalt} => Note(
         id,
         title,
-        inhalt
+        inhalt,
       ),
       _ => throw const FormatException('Failed to format notes.'),
     };
@@ -26,34 +43,65 @@ class Note extends StatefulWidget
 }
 
 class _NoteState extends State<Note> {
-  void _delete()
-  {
+  void _delete() {
     deleteNote(id);
-    setState(() async {
-      getAllNotes();
-    });
+  }
+
+  void _update() {
+    String neuerTitel = titel;
+    String neuerInhalt = inhalt;
+    showDialog(
+      context: context,
+      builder: (BuildContext context) => AlertDialog(
+        content: Column(
+          children: [
+            TextField(
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: 'Titel',
+              ),
+              controller: TextEditingController(text: widget._titel),
+              onChanged: (data) => neuerTitel = data,
+            ),
+            TextField(
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: 'Inhalt',
+              ),
+              controller: TextEditingController(text: widget._inhalt),
+              onChanged: (data) => neuerInhalt = data,
+            ),
+          ],
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: Text("Cancel"),
+          ),
+          TextButton(
+            onPressed: () {
+              updateNote(widget._id, neuerInhalt, neuerTitel);
+              Navigator.pop(context);
+            },
+            child: Text("Ok"),
+          ),
+        ],
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
-
     return Container(
       decoration: BoxDecoration(border: BoxBorder.all()),
-      child:
-      Row(
+      child: Row(
         children: [
           Expanded(
             child: Container(
               child: Column(
                 children: [
-                  Container(
-                    child:
-                    Text(widget._titel),
-                  ),
-                  Container(
-                    child:
-                    Text(widget._inhalt),
-                  )
+                  Container(child: Text(widget._titel)),
+                  Container(child: Text(widget._inhalt)),
                 ],
               ),
             ),
@@ -62,52 +110,8 @@ class _NoteState extends State<Note> {
             decoration: BoxDecoration(border: Border(left: BorderSide())),
             child: Column(
               children: [
-                IconButton(
-                    onPressed: _delete,
-                    icon: Icon(Icons.delete)
-                ),
-                IconButton(
-                    onPressed: () {
-                      String neuerTitel = "";
-                      String neuerInhalt = "";
-                      showDialog(context: context,
-                          builder: (BuildContext context) => AlertDialog(
-                            content: Column(
-                              children: [
-                                TextField(
-                                  decoration: InputDecoration(
-                                    border: OutlineInputBorder(),
-                                    labelText: 'Titel',
-                                  ),
-                                  controller: TextEditingController(text: widget._titel),
-                                  onChanged: (data) => neuerTitel = data,
-                                ),
-                                TextField(
-                                  decoration: InputDecoration(
-                                    border: OutlineInputBorder(),
-                                    labelText: 'Inhalt',
-                                  ),
-                                  controller: TextEditingController(text: widget._inhalt),
-                                  onChanged: (data) => neuerInhalt = data,
-                                )
-
-                              ],
-                            ),
-                            actions: [
-                              TextButton(onPressed: () => Navigator.pop(context), child: Text("Cancel")),
-                              TextButton(onPressed: () {
-                                setState(() async {
-                                  await updateNote(widget._id, neuerInhalt, neuerTitel);
-                                  getAllNotes();
-                                });
-                                Navigator.pop(context);
-                              }, child: Text("Ok"))
-                            ],
-                          )
-                      );
-                    },
-                    icon: Icon(Icons.edit)
-                ),
+                IconButton(onPressed: _delete, icon: Icon(Icons.delete)),
+                IconButton(onPressed: _update, icon: Icon(Icons.edit)),
               ],
             ),
           ),
