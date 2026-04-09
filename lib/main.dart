@@ -19,9 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: .fromSeed(seedColor: Colors.deepPurple),
-      ),
+      theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
@@ -36,54 +34,57 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
-
 class _MyHomePageState extends State<MyHomePage> {
-
   void _addNote() {
     String titel = "";
     String inhalt = "";
 
     setState(() {
-      showDialog(context: context,
-          builder: (BuildContext context,) => AlertDialog(
-            title: Text("Create Note"),
-            content: Column(
-              children: [
-                TextField(
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Titel',
-                  ),
-                  onChanged: (data) => titel = data,
-                ),
-                TextField(
-                  decoration: InputDecoration(
+      showDialog(
+        context: context,
+        builder: (BuildContext context) =>
+            AlertDialog(
+              title: Text("Create Note"),
+              content: Column(
+                children: [
+                  TextField(
+                    decoration: InputDecoration(
                       border: OutlineInputBorder(),
-                      labelText: 'Inhalt'
+                      labelText: 'Titel',
+                    ),
+                    onChanged: (data) => titel = data,
                   ),
-                  onChanged: (data) => inhalt = data,
-                )
-              ],
-            ),
-            actions: [
-              TextButton(
-                  onPressed: () => Navigator.pop(context),
-                  child: const Text("Cancel")
+                  TextField(
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Inhalt',
+                    ),
+                    onChanged: (data) => inhalt = data,
+                  ),
+                ],
               ),
-              TextButton(
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(context),
+                  child: const Text("Cancel"),
+                ),
+                TextButton(
                   onPressed: () {
-                    createNote(inhalt, titel);
+                    setState(() {
+                      networkcreateNote(inhalt, titel);
+                    });
                     Navigator.pop(context);
                   },
-                  child: const Text("Ok")
-              )
-            ],
-          ));
+                  child: const Text("Ok"),
+                ),
+              ],
+            ),
+      );
     });
   }
 
   @override
-  void initState () {
+  void initState() {
     super.initState();
     getAllNotes();
   }
@@ -92,9 +93,13 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: ListView(
-          children: Note.noteList
-        ),
+          child: ListenableBuilder(
+            listenable: NoteListProvidor(),
+            builder: (BuildContext context, Widget? child) {
+              print("ICH HÖRE");
+              return ListView(children: (NoteListProvidor().noteList));
+            },
+          )
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _addNote,
