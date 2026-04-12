@@ -42,8 +42,7 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-02T07:46:47.344Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -56,8 +55,7 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2026-04-02T11:28:35.846Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Bookmark",
@@ -71,8 +69,7 @@
               "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
               "ViewState": "AgIAAMsVAAAAAAAAAAAqwMsVAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
-              "WhenOpened": "2026-04-12T11:47:41.861Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-12T11:47:41.861Z"
             },
             {
               "$type": "Document",
@@ -82,7 +79,7 @@
               "RelativeDocumentMoniker": "BestNote\\Controllers\\NotesController.cs",
               "ToolTip": "F:\\WPM\\DevOps\\NotizenOffical\\DevOps\\BestNote\\Controllers\\NotesController.cs",
               "RelativeToolTip": "BestNote\\Controllers\\NotesController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADkAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAADsAAAAAAAAAAAAwwEwAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-02T08:22:48.504Z",
               "EditorCaption": ""
@@ -97,8 +94,7 @@
               "RelativeToolTip": "BestNote\\Program.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAgwCYAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-02T08:05:48.946Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-02T08:05:48.946Z"
             }
           ]
         }

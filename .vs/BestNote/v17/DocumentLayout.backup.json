@@ -39,11 +39,7 @@
               "RelativeDocumentMoniker": "BestNote\\Models\\Notes.cs",
               "ToolTip": "F:\\WPM\\DevOps\\NotizenOffical\\DevOps\\BestNote\\Models\\Notes.cs",
               "RelativeToolTip": "BestNote\\Models\\Notes.cs",
-<<<<<<< HEAD
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
-=======
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAXAAAAAAAAAA==",
->>>>>>> c80b7c5c3d1b80fb1d66003724877aa3adba21e7
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-02T07:46:47.344Z",
               "IsPinned": true,
@@ -57,7 +53,7 @@
               "RelativeDocumentMoniker": "BestNote\\Notizen.json",
               "ToolTip": "F:\\WPM\\DevOps\\NotizenOffical\\DevOps\\BestNote\\Notizen.json",
               "RelativeToolTip": "BestNote\\Notizen.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAADAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2026-04-02T11:28:35.846Z",
               "IsPinned": true,
@@ -69,7 +65,6 @@
             },
             {
               "$type": "Document",
-<<<<<<< HEAD
               "DocumentIndex": 3,
               "Title": "Microsoft.Common.CurrentVersion.targets",
               "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
@@ -77,17 +72,6 @@
               "ViewState": "AgIAAMsVAAAAAAAAAAAqwMsVAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
               "WhenOpened": "2026-04-12T11:47:41.861Z",
-=======
-              "DocumentIndex": 1,
-              "Title": "Notizen.json",
-              "DocumentMoniker": "F:\\WPM\\DevOps\\BestNote\\BestNote\\Notizen.json",
-              "RelativeDocumentMoniker": "BestNote\\Notizen.json",
-              "ToolTip": "F:\\WPM\\DevOps\\BestNote\\BestNote\\Notizen.json",
-              "RelativeToolTip": "BestNote\\Notizen.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-04-02T11:28:35.846Z",
->>>>>>> c80b7c5c3d1b80fb1d66003724877aa3adba21e7
               "EditorCaption": ""
             },
             {
@@ -98,11 +82,7 @@
               "RelativeDocumentMoniker": "BestNote\\Controllers\\NotesController.cs",
               "ToolTip": "F:\\WPM\\DevOps\\NotizenOffical\\DevOps\\BestNote\\Controllers\\NotesController.cs",
               "RelativeToolTip": "BestNote\\Controllers\\NotesController.cs",
-<<<<<<< HEAD
-              "ViewState": "AgIAADEAAAAAAAAAAAAvwEYAAAApAAAAAAAAAA==",
-=======
-              "ViewState": "AgIAAE4AAAAAAAAAAAAwwF0AAAAkAAAAAAAAAA==",
->>>>>>> c80b7c5c3d1b80fb1d66003724877aa3adba21e7
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADkAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-02T08:22:48.504Z",
               "EditorCaption": ""
@@ -115,11 +95,7 @@
               "RelativeDocumentMoniker": "BestNote\\Program.cs",
               "ToolTip": "F:\\WPM\\DevOps\\NotizenOffical\\DevOps\\BestNote\\Program.cs",
               "RelativeToolTip": "BestNote\\Program.cs",
-<<<<<<< HEAD
               "ViewState": "AgIAAAMAAAAAAAAAAAAgwCYAAAAFAAAAAAAAAA==",
-=======
-              "ViewState": "AgIAAAoAAAAAAAAAAAAwwDgAAAAAAAAAAAAAAA==",
->>>>>>> c80b7c5c3d1b80fb1d66003724877aa3adba21e7
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-02T08:05:48.946Z",
               "EditorCaption": ""
