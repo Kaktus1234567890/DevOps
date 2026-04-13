@@ -37,10 +37,6 @@ app.Use(async (context, next) =>
         await context.Response.CompleteAsync();
         return;
     }
-<<<<<<< HEAD
-    Console.WriteLine(context.Request.Path);
-=======
->>>>>>> c80b7c5c3d1b80fb1d66003724877aa3adba21e7
     await next();
 });
 

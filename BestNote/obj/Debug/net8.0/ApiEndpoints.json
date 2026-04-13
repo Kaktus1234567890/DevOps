@@ -10,7 +10,6 @@
       {
         "Name": "note",
         "Type": "BestNote.Models.BNote2",
-<<<<<<< HEAD
         "IsRequired": true
       }
     ],
@@ -28,37 +27,6 @@
   },
   {
     "ContainingType": "BestNote.Controllers.NotesController",
-    "Method": "GetAll",
-    "RelativePath": "api/Notes/{file}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 999,
-    "Parameters": [
-      {
-        "Name": "file",
-        "Type": "System.String",
-=======
->>>>>>> c80b7c5c3d1b80fb1d66003724877aa3adba21e7
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "BestNote.Controllers.NotesController",
-<<<<<<< HEAD
-=======
-    "Method": "Optionen",
-    "RelativePath": "api/Notes",
-    "HttpMethod": "OPTIONS",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "BestNote.Controllers.NotesController",
->>>>>>> c80b7c5c3d1b80fb1d66003724877aa3adba21e7
     "Method": "DeleteOne",
     "RelativePath": "api/Notes/{id}",
     "HttpMethod": "DELETE",

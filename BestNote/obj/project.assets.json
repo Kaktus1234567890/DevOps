@@ -2,18 +2,6 @@
   "version": 3,
   "targets": {
     "net8.0": {
-      "FileSignatures/7.0.0": {
-        "type": "package",
-        "dependencies": {
-          "OpenMcdf": "3.1.0"
-        },
-        "compile": {
-          "lib/net8.0/FileSignatures.dll": {}
-        },
-        "runtime": {
-          "lib/net8.0/FileSignatures.dll": {}
-        }
-      },
       "Microsoft.EntityFrameworkCore/8.0.25": {
         "type": "package",
         "dependencies": {
@@ -251,19 +239,6 @@
           }
         }
       },
-      "OpenMcdf/3.1.0": {
-        "type": "package",
-        "compile": {
-          "lib/net8.0/OpenMcdf.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net8.0/OpenMcdf.dll": {
-            "related": ".xml"
-          }
-        }
-      },
       "Swashbuckle.AspNetCore/6.6.2": {
         "type": "package",
         "dependencies": {
@@ -330,23 +305,6 @@
     }
   },
   "libraries": {
-    "FileSignatures/7.0.0": {
-      "sha512": "1hUpzYDGNPHD5WqFaTqMg21XgE7RkL8RTBuC9gYBQInurCV1RvZb40h4VelRvRVeYvMmEJH1/9bMyqWRnvLBbg==",
-      "type": "package",
-      "path": "filesignatures/7.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "README.md",
-        "filesignatures.7.0.0.nupkg.sha512",
-        "filesignatures.nuspec",
-        "lib/net10.0/FileSignatures.dll",
-        "lib/net8.0/FileSignatures.dll",
-        "lib/net9.0/FileSignatures.dll",
-        "lib/netstandard2.0/FileSignatures.dll",
-        "lib/netstandard2.1/FileSignatures.dll"
-      ]
-    },
     "Microsoft.EntityFrameworkCore/8.0.25": {
       "sha512": "1seNis+YnJwiQpwzBCQVWTlyfnlfwotQUkCC0MINwS6yt5Gco4XZ/xOz1fB5uwAWjO/TrDzL/sIMk2hXPxeHbg==",
       "type": "package",
@@ -960,25 +918,6 @@
         "microsoft.openapi.nuspec"
       ]
     },
-    "OpenMcdf/3.1.0": {
-      "sha512": "Ur7O5mEpTrkBMYI+VEqlz1F94Dk5cHeBYzbiqxHFcIvc3ZXJ7wFffL44wciCM0pfmwfrN9qBwv0KfhNfaSEZHg==",
-      "type": "package",
-      "path": "openmcdf/3.1.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "README.md",
-        "icon.png",
-        "lib/net10.0/OpenMcdf.dll",
-        "lib/net10.0/OpenMcdf.xml",
-        "lib/net8.0/OpenMcdf.dll",
-        "lib/net8.0/OpenMcdf.xml",
-        "lib/netstandard2.0/OpenMcdf.dll",
-        "lib/netstandard2.0/OpenMcdf.xml",
-        "openmcdf.3.1.0.nupkg.sha512",
-        "openmcdf.nuspec"
-      ]
-    },
     "Swashbuckle.AspNetCore/6.6.2": {
       "sha512": "+NB4UYVYN6AhDSjW0IJAd1AGD8V33gemFNLPaxKTtPkHB+HaKAKf9MGAEUPivEWvqeQfcKIw8lJaHq6LHljRuw==",
       "type": "package",
@@ -1084,7 +1023,6 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "FileSignatures >= 7.0.0",
       "Microsoft.EntityFrameworkCore.InMemory >= 8.0.25",
       "Swashbuckle.AspNetCore >= 6.6.2"
     ]
@@ -1095,11 +1033,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\WPM\\DevOps\\NotizenOffical\\DevOps\\BestNote\\BestNote.csproj",
+      "projectUniqueName": "F:\\WPM\\DevOps\\BestNote\\BestNote\\BestNote.csproj",
       "projectName": "BestNote",
-      "projectPath": "F:\\WPM\\DevOps\\NotizenOffical\\DevOps\\BestNote\\BestNote.csproj",
+      "projectPath": "F:\\WPM\\DevOps\\BestNote\\BestNote\\BestNote.csproj",
       "packagesPath": "C:\\Users\\dave-\\.nuget\\packages\\",
-      "outputPath": "F:\\WPM\\DevOps\\NotizenOffical\\DevOps\\BestNote\\obj\\",
+      "outputPath": "F:\\WPM\\DevOps\\BestNote\\BestNote\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\dave-\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1135,10 +1073,6 @@
       "net8.0": {
         "targetAlias": "net8.0",
         "dependencies": {
-          "FileSignatures": {
-            "target": "Package",
-            "version": "[7.0.0, )"
-          },
           "Microsoft.EntityFrameworkCore.InMemory": {
             "target": "Package",
             "version": "[8.0.25, )"
