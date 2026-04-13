@@ -23,13 +23,10 @@
     "id": 4,
     "titel": "string",
     "inhalt": "string"
-<<<<<<< HEAD
-=======
   },
   {
     "id": 5,
     "titel": "Eins1144",
     "inhalt": ""
->>>>>>> c80b7c5c3d1b80fb1d66003724877aa3adba21e7
   }
 ]

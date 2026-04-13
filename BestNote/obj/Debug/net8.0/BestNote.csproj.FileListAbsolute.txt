@@ -83,12 +83,3 @@ F:\WPM\DevOps\NotizenOffical\DevOps\BestNote\obj\Debug\net8.0\refint\BestNote.dl
 F:\WPM\DevOps\NotizenOffical\DevOps\BestNote\obj\Debug\net8.0\BestNote.pdb
 F:\WPM\DevOps\NotizenOffical\DevOps\BestNote\obj\Debug\net8.0\BestNote.genruntimeconfig.cache
 F:\WPM\DevOps\NotizenOffical\DevOps\BestNote\obj\Debug\net8.0\ref\BestNote.dll
-<<<<<<< HEAD
-F:\WPM\DevOps\NotizenOffical\DevOps\BestNote\bin\Debug\net8.0\Assets\flutter_web_app\assets\AssetManifest.bin.json
-F:\WPM\DevOps\NotizenOffical\DevOps\BestNote\bin\Debug\net8.0\Assets\flutter_web_app\assets\FontManifest.json
-F:\WPM\DevOps\NotizenOffical\DevOps\BestNote\bin\Debug\net8.0\Assets\flutter_web_app\manifest.json
-F:\WPM\DevOps\NotizenOffical\DevOps\BestNote\bin\Debug\net8.0\Assets\flutter_web_app\version.json
-F:\WPM\DevOps\NotizenOffical\DevOps\BestNote\bin\Debug\net8.0\FileSignatures.dll
-F:\WPM\DevOps\NotizenOffical\DevOps\BestNote\bin\Debug\net8.0\OpenMcdf.dll
-=======
->>>>>>> c80b7c5c3d1b80fb1d66003724877aa3adba21e7
