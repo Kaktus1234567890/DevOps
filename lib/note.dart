@@ -115,8 +115,12 @@ class _NoteState extends State<Note> {
             child: Column(
               children: [
                 _deleting?
-                IconButton(onPressed: () => _deleting = false, icon: Icon(Icons.close)) :
-                IconButton(onPressed: () => _deleting = true, icon: Icon(Icons.delete))
+                IconButton(onPressed: () => setState(() {
+                  _deleting = false;
+                }), icon: Icon(Icons.close)) :
+                IconButton(onPressed: () => setState(() {
+                  _deleting = true;
+                }), icon: Icon(Icons.delete))
                 ,
                 _deleting?
                 IconButton(onPressed: _delete, icon: Icon(Icons.check)) :
