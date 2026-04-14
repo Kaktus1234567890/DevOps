@@ -95,7 +95,6 @@ class _NoteState extends State<Note> {
 
   @override
   Widget build(BuildContext context) {
-    print (_deleting);
     return Container(
       decoration: BoxDecoration(border: BoxBorder.all()),
       child: Row(
