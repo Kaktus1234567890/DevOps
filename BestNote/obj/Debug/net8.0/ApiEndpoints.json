@@ -27,6 +27,22 @@
   },
   {
     "ContainingType": "BestNote.Controllers.NotesController",
+    "Method": "GetAll",
+    "RelativePath": "api/Notes/{file}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 999,
+    "Parameters": [
+      {
+        "Name": "file",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "BestNote.Controllers.NotesController",
     "Method": "DeleteOne",
     "RelativePath": "api/Notes/{id}",
     "HttpMethod": "DELETE",

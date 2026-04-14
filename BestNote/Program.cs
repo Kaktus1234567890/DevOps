@@ -37,6 +37,8 @@ app.Use(async (context, next) =>
         await context.Response.CompleteAsync();
         return;
     }
+
+    Console.WriteLine(context.Request.Path);
     await next();
 });
 
