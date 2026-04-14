@@ -43,6 +43,9 @@ class Note extends StatefulWidget with ChangeNotifier {
 }
 
 class _NoteState extends State<Note> {
+  
+  bool _deleting = false;
+  
   void _delete() {
     deleteNote(id);
   }
@@ -110,8 +113,14 @@ class _NoteState extends State<Note> {
             decoration: BoxDecoration(border: Border(left: BorderSide())),
             child: Column(
               children: [
-                IconButton(onPressed: _delete, icon: Icon(Icons.delete)),
-                IconButton(onPressed: _update, icon: Icon(Icons.edit)),
+                _deleting?
+                IconButton(onPressed: () => _deleting = true, icon: Icon(Icons.delete)) :
+                IconButton(onPressed: () => _deleting = false, icon: Icon(Icons.close))
+                ,
+                _deleting?
+                IconButton(onPressed: _update, icon: Icon(Icons.edit)) :
+                IconButton(onPressed: _delete, icon: Icon(Icons.check))
+                ,
               ],
             ),
           ),
