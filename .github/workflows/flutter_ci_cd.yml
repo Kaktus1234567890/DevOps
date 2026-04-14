@@ -1,7 +1,7 @@
 name: Flutter CI/CD
 
 on:
-  push:
+  pull_request:
     branches:
       - main
 jobs:
@@ -25,7 +25,7 @@ jobs:
         run: flutter analyze --no-fatal-infos --no-fatal-warnings
 
       - name: Build Web
-        run: flutter build web --release
+        run: flutter build web --base-href api/Notes
 
       - name: Upload artifact
         uses: actions/upload-artifact@v5
