@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\WPM\\DevOps\\BestNote\\BestNote\\BestNote.csproj": {}
+    "F:\\WPM\\DevOps\\NotizenOffical\\DevOps\\BestNote\\BestNote.csproj": {}
   },
   "projects": {
-    "F:\\WPM\\DevOps\\BestNote\\BestNote\\BestNote.csproj": {
+    "F:\\WPM\\DevOps\\NotizenOffical\\DevOps\\BestNote\\BestNote.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\WPM\\DevOps\\BestNote\\BestNote\\BestNote.csproj",
+        "projectUniqueName": "F:\\WPM\\DevOps\\NotizenOffical\\DevOps\\BestNote\\BestNote.csproj",
         "projectName": "BestNote",
-        "projectPath": "F:\\WPM\\DevOps\\BestNote\\BestNote\\BestNote.csproj",
+        "projectPath": "F:\\WPM\\DevOps\\NotizenOffical\\DevOps\\BestNote\\BestNote.csproj",
         "packagesPath": "C:\\Users\\dave-\\.nuget\\packages\\",
-        "outputPath": "F:\\WPM\\DevOps\\BestNote\\BestNote\\obj\\",
+        "outputPath": "F:\\WPM\\DevOps\\NotizenOffical\\DevOps\\BestNote\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\dave-\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -47,6 +47,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "FileSignatures": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
             "Microsoft.EntityFrameworkCore.InMemory": {
               "target": "Package",
               "version": "[8.0.25, )"

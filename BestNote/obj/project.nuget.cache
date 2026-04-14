@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "dv/B3/h8p2k=",
+  "dgSpecHash": "iYw9ASUGo7I=",
   "success": true,
-  "projectFilePath": "F:\\WPM\\DevOps\\BestNote\\BestNote\\BestNote.csproj",
+  "projectFilePath": "F:\\WPM\\DevOps\\NotizenOffical\\DevOps\\BestNote\\BestNote.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\dave-\\.nuget\\packages\\filesignatures\\7.0.0\\filesignatures.7.0.0.nupkg.sha512",
     "C:\\Users\\dave-\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.25\\microsoft.entityframeworkcore.8.0.25.nupkg.sha512",
     "C:\\Users\\dave-\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\8.0.25\\microsoft.entityframeworkcore.abstractions.8.0.25.nupkg.sha512",
     "C:\\Users\\dave-\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\8.0.25\\microsoft.entityframeworkcore.analyzers.8.0.25.nupkg.sha512",
@@ -18,6 +19,7 @@
     "C:\\Users\\dave-\\.nuget\\packages\\microsoft.extensions.options\\8.0.2\\microsoft.extensions.options.8.0.2.nupkg.sha512",
     "C:\\Users\\dave-\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512",
     "C:\\Users\\dave-\\.nuget\\packages\\microsoft.openapi\\1.6.14\\microsoft.openapi.1.6.14.nupkg.sha512",
+    "C:\\Users\\dave-\\.nuget\\packages\\openmcdf\\3.1.0\\openmcdf.3.1.0.nupkg.sha512",
     "C:\\Users\\dave-\\.nuget\\packages\\swashbuckle.aspnetcore\\6.6.2\\swashbuckle.aspnetcore.6.6.2.nupkg.sha512",
     "C:\\Users\\dave-\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.6.2\\swashbuckle.aspnetcore.swagger.6.6.2.nupkg.sha512",
     "C:\\Users\\dave-\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.6.2\\swashbuckle.aspnetcore.swaggergen.6.6.2.nupkg.sha512",

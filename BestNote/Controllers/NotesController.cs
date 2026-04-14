@@ -1,9 +1,15 @@
 ﻿using BestNote.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.VisualBasic;
 using System.Net.Http.Headers;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.IO;
+using FileSignatures;
+using FileSignatures.Formats;
+using Microsoft.AspNetCore.StaticFiles;
 
 
 namespace BestNote.Controllers
@@ -60,6 +66,35 @@ namespace BestNote.Controllers
             //Response.Headers.Append("Access-Control-Allow-Origin", "*");
             //Response.Headers.Append("Access-Control-Allow-Methods", "PUT, OPTIONS, DELETE");
             return Ok(notes);
+        }
+
+        [HttpGet("{*file}", Order = 999)]
+        public IActionResult GetAll(string file = null)
+        {
+
+            if (file == null || file == "")
+            {
+                file = "index.html";
+            } 
+
+            string assetPath = file;
+
+            string m = JsonInteracter.GetMediaType(assetPath);
+            Response.Headers.Append("Content-Type", m);
+
+            FileStream bytes = null;
+            
+            try
+            {
+                bytes = JsonInteracter.GetAllStuff(assetPath);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Exception: " + e.Message);
+            }
+
+            Response.Headers.Append("Content-Length", (bytes.Length - 1).ToString());
+            return new FileStreamResult(bytes, m);
         }
 
         [HttpDelete("{id}")]
@@ -142,6 +177,38 @@ namespace BestNote.Controllers
             };
             var json = JsonSerializer.Serialize(notes, options);
             File.WriteAllText(fileName, json);
+        }
+
+        public static FileStream GetAllStuff(string file)
+        {
+            return File.OpenRead("Assets/flutter_web_app/" + file);
+        }
+
+        public static string GetMediaType(string file)
+        {
+            var inspector = new FileFormatInspector();
+            FileStream stream = File.OpenRead("Assets/flutter_web_app/" + file);
+            var format = inspector.DetermineFileFormat(stream);
+
+            stream.Close();
+
+            if (format == null)
+            {
+                var provider = new FileExtensionContentTypeProvider();
+                string providerContentType = "";
+                if (provider.TryGetContentType("Assets/flutter_web_app/" + file, out providerContentType))
+                {
+                    return providerContentType;
+                }
+                else {
+
+                    return "application/octet-stream";
+                }
+            }
+
+            string mediaType  = format?.MediaType ?? "application/octet-stream";
+
+            return mediaType;
         }
     }
 }
