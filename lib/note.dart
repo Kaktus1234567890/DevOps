@@ -95,6 +95,7 @@ class _NoteState extends State<Note> {
 
   @override
   Widget build(BuildContext context) {
+    print (_deleting);
     return Container(
       decoration: BoxDecoration(border: BoxBorder.all()),
       child: Row(
@@ -114,12 +115,12 @@ class _NoteState extends State<Note> {
             child: Column(
               children: [
                 _deleting?
-                IconButton(onPressed: () => _deleting = true, icon: Icon(Icons.delete)) :
-                IconButton(onPressed: () => _deleting = false, icon: Icon(Icons.close))
+                IconButton(onPressed: () => _deleting = false, icon: Icon(Icons.close)) :
+                IconButton(onPressed: () => _deleting = true, icon: Icon(Icons.delete))
                 ,
                 _deleting?
-                IconButton(onPressed: _update, icon: Icon(Icons.edit)) :
-                IconButton(onPressed: _delete, icon: Icon(Icons.check))
+                IconButton(onPressed: _delete, icon: Icon(Icons.check)) :
+                IconButton(onPressed: _update, icon: Icon(Icons.edit))
                 ,
               ],
             ),
