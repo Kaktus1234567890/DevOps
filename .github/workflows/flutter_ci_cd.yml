@@ -25,7 +25,7 @@ jobs:
         run: flutter analyze --no-fatal-infos --no-fatal-warnings
 
       - name: Build Web
-        run: flutter build web --base-href api/Notes
+        run: flutter build web --base-href /api/Notes/
 
       - name: Upload artifact
         uses: actions/upload-artifact@v5
