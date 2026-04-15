@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  build-.net:
+  build-net:
 
     runs-on: ubuntu-latest
 
