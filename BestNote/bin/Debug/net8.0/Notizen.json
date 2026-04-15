@@ -13,20 +13,5 @@
     "id": 2,
     "titel": "Hallo Hans",
     "inhalt": "Diese Notize ist Hans"
-  },
-  {
-    "id": 3,
-    "titel": "string",
-    "inhalt": "string"
-  },
-  {
-    "id": 4,
-    "titel": "string",
-    "inhalt": "string"
-  },
-  {
-    "id": 5,
-    "titel": "Eins1144",
-    "inhalt": ""
   }
 ]

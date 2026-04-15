@@ -17,16 +17,6 @@
   },
   {
     "ContainingType": "BestNote.Controllers.NotesController",
-    "Method": "Optionen",
-    "RelativePath": "api/Notes",
-    "HttpMethod": "OPTIONS",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "BestNote.Controllers.NotesController",
     "Method": "GetAll",
     "RelativePath": "api/Notes/{file}",
     "HttpMethod": "GET",

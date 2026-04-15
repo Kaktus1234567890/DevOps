@@ -3,23 +3,20 @@
   "WorkspaceRootPath": "F:\\WPM\\DevOps\\NotizenOffical\\DevOps\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{043EB6F7-F9EE-4F59-944D-BA8217A6FF76}|BestNote\\BestNote.csproj|f:\\wpm\\devops\\notizenoffical\\devops\\bestnote\\notizen.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{043EB6F7-F9EE-4F59-944D-BA8217A6FF76}|BestNote\\BestNote.csproj|solutionrelative:bestnote\\notizen.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{043EB6F7-F9EE-4F59-944D-BA8217A6FF76}|BestNote\\BestNote.csproj|f:\\wpm\\devops\\notizenoffical\\devops\\bestnote\\models\\notes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{043EB6F7-F9EE-4F59-944D-BA8217A6FF76}|BestNote\\BestNote.csproj|solutionrelative:bestnote\\models\\notes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{043EB6F7-F9EE-4F59-944D-BA8217A6FF76}|BestNote\\BestNote.csproj|f:\\wpm\\devops\\notizenoffical\\devops\\bestnote\\controllers\\notescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{043EB6F7-F9EE-4F59-944D-BA8217A6FF76}|BestNote\\BestNote.csproj|solutionrelative:bestnote\\controllers\\notescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{043EB6F7-F9EE-4F59-944D-BA8217A6FF76}|BestNote\\BestNote.csproj|f:\\wpm\\devops\\notizenoffical\\devops\\bestnote\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{043EB6F7-F9EE-4F59-944D-BA8217A6FF76}|BestNote\\BestNote.csproj|solutionrelative:bestnote\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{043EB6F7-F9EE-4F59-944D-BA8217A6FF76}|BestNote\\BestNote.csproj|f:\\wpm\\devops\\notizenoffical\\devops\\bestnote\\controllers\\notescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{043EB6F7-F9EE-4F59-944D-BA8217A6FF76}|BestNote\\BestNote.csproj|solutionrelative:bestnote\\controllers\\notescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{043EB6F7-F9EE-4F59-944D-BA8217A6FF76}|BestNote\\BestNote.csproj|f:\\wpm\\devops\\notizenoffical\\devops\\bestnote\\notizen.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{043EB6F7-F9EE-4F59-944D-BA8217A6FF76}|BestNote\\BestNote.csproj|solutionrelative:bestnote\\notizen.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{043EB6F7-F9EE-4F59-944D-BA8217A6FF76}|BestNote\\BestNote.csproj|f:\\wpm\\devops\\notizenoffical\\devops\\bestnote\\models\\notes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{043EB6F7-F9EE-4F59-944D-BA8217A6FF76}|BestNote\\BestNote.csproj|solutionrelative:bestnote\\models\\notes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -29,11 +26,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Notes.cs",
               "DocumentMoniker": "F:\\WPM\\DevOps\\NotizenOffical\\DevOps\\BestNote\\Models\\Notes.cs",
               "RelativeDocumentMoniker": "BestNote\\Models\\Notes.cs",
@@ -42,17 +39,18 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-02T07:46:47.344Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Notizen.json",
               "DocumentMoniker": "F:\\WPM\\DevOps\\NotizenOffical\\DevOps\\BestNote\\Notizen.json",
               "RelativeDocumentMoniker": "BestNote\\Notizen.json",
               "ToolTip": "F:\\WPM\\DevOps\\NotizenOffical\\DevOps\\BestNote\\Notizen.json",
               "RelativeToolTip": "BestNote\\Notizen.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAYAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2026-04-02T11:28:35.846Z",
               "IsPinned": true,
@@ -64,37 +62,29 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Microsoft.Common.CurrentVersion.targets",
-              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
-              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
-              "ViewState": "AgIAAMsVAAAAAAAAAAAqwN4VAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
-              "WhenOpened": "2026-04-12T11:47:41.861Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "NotesController.cs",
               "DocumentMoniker": "F:\\WPM\\DevOps\\NotizenOffical\\DevOps\\BestNote\\Controllers\\NotesController.cs",
               "RelativeDocumentMoniker": "BestNote\\Controllers\\NotesController.cs",
               "ToolTip": "F:\\WPM\\DevOps\\NotizenOffical\\DevOps\\BestNote\\Controllers\\NotesController.cs",
               "RelativeToolTip": "BestNote\\Controllers\\NotesController.cs",
-              "ViewState": "AgIAALYAAAAAAAAAAADwvwEAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAEkAAAAAAAAAAAAcwFwAAABxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-02T08:22:48.504Z"
+              "WhenOpened": "2026-04-02T08:22:48.504Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "F:\\WPM\\DevOps\\NotizenOffical\\DevOps\\BestNote\\Program.cs",
               "RelativeDocumentMoniker": "BestNote\\Program.cs",
               "ToolTip": "F:\\WPM\\DevOps\\NotizenOffical\\DevOps\\BestNote\\Program.cs",
               "RelativeToolTip": "BestNote\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACgAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-02T08:05:48.946Z"
+              "WhenOpened": "2026-04-02T08:05:48.946Z",
+              "EditorCaption": ""
             }
           ]
         }
