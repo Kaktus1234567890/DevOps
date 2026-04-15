@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'dart:js_interop_unsafe';
-import 'package:web/web.dart' as web;
 import 'dart:js_interop';
 import 'dart:async';
 

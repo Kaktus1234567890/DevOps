@@ -1,3 +1,4 @@
+import 'args.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -7,6 +8,7 @@ import 'network.dart';
 import 'note.dart';
 
 void main() {
+  print(NetworkService.port);
   runApp(const MyApp());
 }
 
@@ -37,13 +39,14 @@ class _MyHomePageState extends State<MyHomePage> {
     String titel = "";
     String inhalt = "";
 
-
-      showDialog(
-        context: context,
-        builder: (BuildContext context) =>
-            AlertDialog(
-              title: Text("Create Note"),
-              content: Column(
+    showDialog(
+      context: context,
+      builder: (BuildContext context) =>
+          AlertDialog(
+            title: Text("Create Note"),
+            content: IntrinsicHeight(
+              child: Column(
+                spacing: 10,
                 children: [
                   TextField(
                     decoration: InputDecoration(
@@ -51,6 +54,10 @@ class _MyHomePageState extends State<MyHomePage> {
                       labelText: 'Titel',
                     ),
                     onChanged: (data) => titel = data,
+                    onSubmitted: (data)  {
+                      createNote(inhalt, titel);
+                      Navigator.pop(context);
+                    },
                   ),
                   TextField(
                     decoration: InputDecoration(
@@ -58,24 +65,29 @@ class _MyHomePageState extends State<MyHomePage> {
                       labelText: 'Inhalt',
                     ),
                     onChanged: (data) => inhalt = data,
+                    onSubmitted: (data)  {
+                      createNote(inhalt, titel);
+                      Navigator.pop(context);
+                    },
                   ),
                 ],
               ),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(context),
-                  child: const Text("Cancel"),
-                ),
-                TextButton(
-                  onPressed: () {
-                    createNote(inhalt, titel);
-                    Navigator.pop(context);
-                  },
-                  child: const Text("Ok"),
-                ),
-              ],
             ),
-      );
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: const Text("Cancel"),
+              ),
+              TextButton(
+                onPressed: () {
+                  createNote(inhalt, titel);
+                  Navigator.pop(context);
+                },
+                child: const Text("Ok"),
+              ),
+            ],
+          ),
+    );
   }
 
   @override
