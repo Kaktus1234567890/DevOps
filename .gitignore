@@ -50,3 +50,4 @@ app.*.map.json
 /.vs/
 /BestNote/Assets/
 /Assets/
+/wwwroot/flutter_web_app/
