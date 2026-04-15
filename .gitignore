@@ -48,3 +48,4 @@ app.*.map.json
 /BestNote/bin/
 /BestNote/obj/
 /.vs/
+/BestNote/Assets/
