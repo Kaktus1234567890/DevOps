@@ -44,31 +44,34 @@ class _MyHomePageState extends State<MyHomePage> {
       builder: (BuildContext context) =>
           AlertDialog(
             title: Text("Create Note"),
-            content: Column(
-              children: [
-                TextField(
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Titel',
+            content: IntrinsicHeight(
+              child: Column(
+                spacing: 10,
+                children: [
+                  TextField(
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Titel',
+                    ),
+                    onChanged: (data) => titel = data,
+                    onSubmitted: (data)  {
+                      createNote(inhalt, titel);
+                      Navigator.pop(context);
+                    },
                   ),
-                  onChanged: (data) => titel = data,
-                  onSubmitted: (data)  {
-                    createNote(inhalt, titel);
-                    Navigator.pop(context);
-                  },
-                ),
-                TextField(
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Inhalt',
+                  TextField(
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Inhalt',
+                    ),
+                    onChanged: (data) => inhalt = data,
+                    onSubmitted: (data)  {
+                      createNote(inhalt, titel);
+                      Navigator.pop(context);
+                    },
                   ),
-                  onChanged: (data) => inhalt = data,
-                  onSubmitted: (data)  {
-                    createNote(inhalt, titel);
-                    Navigator.pop(context);
-                  },
-                ),
-              ],
+                ],
+              ),
             ),
             actions: [
               TextButton(
