@@ -10,6 +10,7 @@ on:
 
 jobs:
   build-net:
+    name: Build .net
 
     runs-on: ubuntu-latest
 
