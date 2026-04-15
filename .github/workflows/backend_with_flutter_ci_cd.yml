@@ -1,0 +1,41 @@
+name: Backend with Flutter
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+
+
+  build-Backend_with_Flutter:
+    name: Build Backend with Flutter
+    runs-on: ubuntu-latest
+
+    #Build Flutter
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.41.5'
+          channel: stable
+      - name: Install dependencies
+        run: flutter pub get
+      - name: Analyze code
+        run: flutter analyze --no-fatal-infos --no-fatal-warnings
+      - name: Build Web
+        run: flutter build web --base-href /api/Notes/ -o BestNote/wwwroot/flutter_web_app
+
+      #Build Backend with Flutter Frontend
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: 8.0.x
+      - name: Restore dependencies
+        run: dotnet restore
+      - name: Build
+        run: dotnet publish
+
+      #Build/Publish Docker Image
