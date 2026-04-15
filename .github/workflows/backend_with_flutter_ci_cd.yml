@@ -1,7 +1,7 @@
 name: Backend with Flutter
 
 on:
-  pull_request:
+  push:
     branches:
       - main
 
@@ -26,7 +26,7 @@ jobs:
       - name: Analyze code
         run: flutter analyze --no-fatal-infos --no-fatal-warnings
       - name: Build Web
-        run: flutter build web --base-href /api/Notes/ -o BestNote/Assets/flutter_web_app
+        run: flutter build web --base-href /api/Notes/ -o BestNote/wwwroot/flutter_web_app
 
       #Build Backend with Flutter Frontend
       - name: Setup .NET
@@ -36,12 +36,6 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore
       - name: Build
-        run: dotnet build --no-restore
+        run: dotnet publish
 
-      #Upload new Product
-      - name: Upload artifact
-        uses: actions/upload-artifact@v5
-        with:
-          name: backend-release
-          path: BestNote/bin/Debug/net8.0
-          #TODO: Upload-Path
+      #Build/Publish Docker Image
