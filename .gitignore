@@ -49,3 +49,5 @@ app.*.map.json
 /BestNote/obj/
 /.vs/
 /BestNote/Assets/
+/Assets/
+/BestNote/wwwroot/flutter_web_app/
