@@ -1,3 +1,4 @@
+import 'args.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -7,6 +8,7 @@ import 'network.dart';
 import 'note.dart';
 
 void main() {
+  print(NetworkService.port);
   runApp(const MyApp());
 }
 
@@ -37,45 +39,52 @@ class _MyHomePageState extends State<MyHomePage> {
     String titel = "";
     String inhalt = "";
 
-
-      showDialog(
-        context: context,
-        builder: (BuildContext context) =>
-            AlertDialog(
-              title: Text("Create Note"),
-              content: Column(
-                children: [
-                  TextField(
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Titel',
-                    ),
-                    onChanged: (data) => titel = data,
+    showDialog(
+      context: context,
+      builder: (BuildContext context) =>
+          AlertDialog(
+            title: Text("Create Note"),
+            content: Column(
+              children: [
+                TextField(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Titel',
                   ),
-                  TextField(
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Inhalt',
-                    ),
-                    onChanged: (data) => inhalt = data,
-                  ),
-                ],
-              ),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(context),
-                  child: const Text("Cancel"),
-                ),
-                TextButton(
-                  onPressed: () {
+                  onChanged: (data) => titel = data,
+                  onSubmitted: (data)  {
                     createNote(inhalt, titel);
                     Navigator.pop(context);
                   },
-                  child: const Text("Ok"),
+                ),
+                TextField(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Inhalt',
+                  ),
+                  onChanged: (data) => inhalt = data,
+                  onSubmitted: (data)  {
+                    createNote(inhalt, titel);
+                    Navigator.pop(context);
+                  },
                 ),
               ],
             ),
-      );
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: const Text("Cancel"),
+              ),
+              TextButton(
+                onPressed: () {
+                  createNote(inhalt, titel);
+                  Navigator.pop(context);
+                },
+                child: const Text("Ok"),
+              ),
+            ],
+          ),
+    );
   }
 
   @override
