@@ -1,4 +1,4 @@
-﻿using BestNote.Models;
+﻿﻿using BestNote.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualBasic;
@@ -10,6 +10,8 @@ using System.IO;
 using FileSignatures;
 using FileSignatures.Formats;
 using Microsoft.AspNetCore.StaticFiles;
+using System.Text;
+using System.IO.Pipes;
 
 
 namespace BestNote.Controllers
@@ -25,14 +27,11 @@ namespace BestNote.Controllers
         public NotesController(NotesContext db)
         {
             notes = JsonInteracter.Read();
-            //_db = db;
         }
 
         [HttpPost]
         public IActionResult CreateNote(BNote2 note)
         {
-            //Response.Headers.Append("Access-Control-Allow-Origin", "*");
-            //Response.Headers.Append("Access-Control-Allow-Methods", "PUT, OPTIONS, DELETE");
 
             BNote newNote = new(notes.Count, note.titel, note.inhalt);
             notes.Add(newNote);
@@ -44,8 +43,6 @@ namespace BestNote.Controllers
         [HttpGet("one")]
         public IActionResult GetNote(long id)
         {
-            //Response.Headers.Append("Access-Control-Allow-Origin", "*");
-            //Response.Headers.Append("Access-Control-Allow-Methods", "PUT, OPTIONS, DELETE");
 
             BNote note;
             foreach (BNote n in notes)
@@ -63,8 +60,6 @@ namespace BestNote.Controllers
         [HttpGet("all")]
         public IActionResult GetAllNote()
         {
-            //Response.Headers.Append("Access-Control-Allow-Origin", "*");
-            //Response.Headers.Append("Access-Control-Allow-Methods", "PUT, OPTIONS, DELETE");
             return Ok(notes);
         }
 
@@ -86,7 +81,23 @@ namespace BestNote.Controllers
             
             try
             {
-                bytes = JsonInteracter.GetAllStuff(assetPath);
+                bytes = JsonInteracter.GetFileContent(assetPath);
+                if(file == "index.html")
+                {
+                    string fileContents;
+                    using (StreamReader reader = new StreamReader(bytes))
+                    {
+                        fileContents = reader.ReadToEnd();
+                    }
+
+                    fileContents = fileContents.Replace("{{PORT}}", HttpContext.Connection.LocalPort.ToString());
+                    MemoryStream stream = new MemoryStream();
+                    StreamWriter writer = new StreamWriter(stream);
+                    writer.Write(fileContents);
+                    writer.Flush();
+                    stream.Position = 0;
+                    return Ok(stream);
+                }
             }
             catch (Exception e)
             {
@@ -100,8 +111,6 @@ namespace BestNote.Controllers
         [HttpDelete("{id}")]
         public IActionResult DeleteOne (int id)
         {
-            //Response.Headers.Append("Access-Control-Allow-Origin", "*");
-            //Response.Headers.Append("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
 
             foreach (BNote n in notes)
             {
@@ -119,8 +128,6 @@ namespace BestNote.Controllers
         [HttpPut("{id}")]
         public IActionResult Update(int id, BNote note)
         {
-            //Response.Headers.Append("Access-Control-Allow-Origin", "*");
-            //Response.Headers.Append("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
 
             for (int i = 0; i < notes.Count; i++)
             {
@@ -134,23 +141,6 @@ namespace BestNote.Controllers
 
             return NotFound();
         }
-
-        [HttpOptions]
-        public IActionResult Optionen()
-        {
-            //Response.Headers.Append("Access-Control-Allow-Origin", "*");
-            //Response.Headers.Append("Access-Control-Allow-Private-Network", "true");
-            //Response.Headers.Append("Access-Control-Allow-Methods", "PUT, OPTIONS, DELETE");
-
-            //Response.Headers.Append("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept" );
-            //Response.Headers.Append("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-            //Response.Headers.Append("Access-Control-Allow-Credentials", "true" );
-            //Response.StatusCode = 200;
-
-
-            return Ok();
-        }
-
     }
 
     public class JsonInteracter
@@ -179,15 +169,22 @@ namespace BestNote.Controllers
             File.WriteAllText(fileName, json);
         }
 
-        public static FileStream GetAllStuff(string file)
+        public static FileStream GetFileContent(string file)
         {
-            return File.OpenRead("Assets/flutter_web_app/" + file);
+            try
+            {
+                return File.OpenRead("wwwroot/flutter_web_app/" + file);
+            }
+            catch (Exception ex) { 
+                Console.WriteLine(ex.Message);
+            }
+            return null;
         }
 
         public static string GetMediaType(string file)
         {
             var inspector = new FileFormatInspector();
-            FileStream stream = File.OpenRead("Assets/flutter_web_app/" + file);
+            FileStream stream = File.OpenRead("wwwroot/flutter_web_app/" + file);
             var format = inspector.DetermineFileFormat(stream);
 
             stream.Close();
@@ -196,7 +193,7 @@ namespace BestNote.Controllers
             {
                 var provider = new FileExtensionContentTypeProvider();
                 string providerContentType = "";
-                if (provider.TryGetContentType("Assets/flutter_web_app/" + file, out providerContentType))
+                if (provider.TryGetContentType("wwwroot/flutter_web_app/" + file, out providerContentType))
                 {
                     return providerContentType;
                 }
