@@ -25,9 +25,10 @@ namespace BestNote.Controllers
         //private readonly NotesContext _db;
         private readonly FileStorage _fileStorage;
 
+
         public NotesController(NotesContext db, FileStorage fileStorage)
         {
-            notes = JsonInteracter.Read();
+            notes = JsonInteracter.Read(_fileStorage.GetFilePath("Notizen.json"));
             _fileStorage = fileStorage;
         }
 
@@ -37,7 +38,7 @@ namespace BestNote.Controllers
 
             BNote newNote = new(notes.Count, note.titel, note.inhalt);
             notes.Add(newNote);
-            JsonInteracter.Write(notes);
+            JsonInteracter.Write(notes, _fileStorage.GetFilePath("Notizen.json"));
 
             return CreatedAtAction("GetNote", new { id = newNote.id }, newNote);
         }
@@ -119,7 +120,7 @@ namespace BestNote.Controllers
                 if(n.id == id)
                 {
                     notes.Remove(n);
-                    JsonInteracter.Write(notes);
+                    JsonInteracter.Write(notes, _fileStorage.GetFilePath("Notizen.json"));
                     return Ok(notes);
                 }
             }
@@ -136,7 +137,7 @@ namespace BestNote.Controllers
                 if (notes[i].id == id)
                 {
                     notes[i] = note;
-                    JsonInteracter.Write(notes);
+                    JsonInteracter.Write(notes, _fileStorage.GetFilePath("Notizen.json"));
                     return Ok(notes);
                 }
             }
@@ -164,11 +165,9 @@ namespace BestNote.Controllers
 
         public class JsonInteracter
         {
-            //static string path = _fileStorage.GetFilePath("Notizen.json");
-            public static List<BNote> Read()
+            public static List<BNote> Read(string path)
             {
-                string fileName = "Notizen.json";
-                string jsonString = File.ReadAllText(fileName);
+                string jsonString = File.ReadAllText(path);
                 JsonSerializerOptions options = new JsonSerializerOptions
                 {
                     IncludeFields = true
@@ -178,7 +177,7 @@ namespace BestNote.Controllers
                 return notize;
             }
 
-        public static void Write(List<BNote> notes)
+        public static void Write(List<BNote> notes, string path)
         {
             string fileName = "Notizen.json";
             JsonSerializerOptions options = new JsonSerializerOptions
