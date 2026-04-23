@@ -23,10 +23,12 @@ namespace BestNote.Controllers
         // localhost:44367/api/NotesController
         List<BNote> notes = new List<BNote>();
         //private readonly NotesContext _db;
+        private readonly FileStorage _fileStorage;
 
-        public NotesController(NotesContext db)
+        public NotesController(NotesContext db, FileStorage fileStorage)
         {
             notes = JsonInteracter.Read();
+            _fileStorage = fileStorage;
         }
 
         [HttpPost]
@@ -143,13 +145,30 @@ namespace BestNote.Controllers
         }
     }
 
+
+    public class FileStorage
+    {
+        private readonly string _dataDir;
+
+        public FileStorage(IConfiguration config)
+        {
+            _dataDir = config["Data:Directory"];
+            Directory.CreateDirectory(_dataDir);
+        }
+
+        public string GetFilePath(string fileName)
+        {
+            return Path.Combine(_dataDir, fileName);
+        }
+    }
+
     public class JsonInteracter
     {
-        static string fileName = "Notizen.json";
+        static string path = _fileStorage.GetFilePath("Notizen.json");
         public static List<BNote> Read()
         {
             //string fileName = "Notizen.json";
-            string jsonString = File.ReadAllText(fileName);
+            string jsonString = File.ReadAllText(path);
             JsonSerializerOptions options = new JsonSerializerOptions
             {
                 IncludeFields = true
@@ -167,7 +186,7 @@ namespace BestNote.Controllers
                 WriteIndented = true
             };
             var json = JsonSerializer.Serialize(notes, options);
-            File.WriteAllText(fileName, json);
+            File.WriteAllText(path, json);
         }
 
         public static FileStream GetFileContent(string file)
@@ -210,3 +229,4 @@ namespace BestNote.Controllers
         }
     }
 }
+
