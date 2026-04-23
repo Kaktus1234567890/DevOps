@@ -26,7 +26,7 @@ namespace BestNote.Controllers
         private readonly FileStorage _fileStorage;
 
 
-        public NotesController(NotesContext db, FileStorage fileStorage)
+        public NotesController(FileStorage fileStorage)
         {
             notes = JsonInteracter.Read(_fileStorage.GetFilePath("Notizen.json"));
             _fileStorage = fileStorage;
