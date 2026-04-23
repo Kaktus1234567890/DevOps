@@ -36,11 +36,11 @@ namespace BestNote.Controllers
         [HttpPost]
         public IActionResult CreateNote(BNote2 note)
         {
-
-            BNote newNote = new(notes.Count, note.titel, note.inhalt);
             var path = _fileStorage.GetFilePath("Notizen.json");
             var notes = JsonInteracter.Read(path);
 
+            BNote newNote = new(notes.Count, note.titel, note.inhalt);
+            
             notes.Add(newNote);
             JsonInteracter.Write(notes, _fileStorage.GetFilePath("Notizen.json"));
 
