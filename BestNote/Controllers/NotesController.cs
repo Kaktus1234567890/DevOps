@@ -153,8 +153,14 @@ namespace BestNote.Controllers
 
         public FileStorage(IConfiguration config)
         {
-            _dataDir = config["Data:Directory"];
+            _dataDir = config["Data:Directory"] ?? "/app/data";
             Directory.CreateDirectory(_dataDir);
+            var filePath = Path.Combine(_dataDir, "Notizen.json");
+
+            if (!File.Exists(filePath))
+            {
+                File.WriteAllText(filePath, "[]");
+            }
         }
 
         public string GetFilePath(string fileName)

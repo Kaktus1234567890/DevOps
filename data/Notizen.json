@@ -1,0 +1,22 @@
+[
+  {
+    "id": 0,
+    "titel": "Hallo",
+    "inhalt": "Welt"
+  },
+  {
+    "id": 1,
+    "titel": "Hallo Welt",
+    "inhalt": "Diese Notize ist hier"
+  },
+  {
+    "id": 2,
+    "titel": "Hallo Hans",
+    "inhalt": "Diese Notize ist Hans11"
+  }
+  {
+    "id": 3,
+    "titel": "Bitte siehe das",
+    "inhalt": "Wenn du das siehst ist vieles schoen"
+  }
+]
