@@ -132,13 +132,15 @@ namespace BestNote.Controllers
         [HttpPut("{id}")]
         public IActionResult Update(int id, BNote note)
         {
+            var path = _fileStorage.GetFilePath("Notizen.json");
+            var notes = JsonInteracter.Read(path);
 
             for (int i = 0; i < notes.Count; i++)
             {
                 if (notes[i].id == id)
                 {
                     notes[i] = note;
-                    JsonInteracter.Write(notes, _fileStorage.GetFilePath("Notizen.json"));
+                    JsonInteracter.Write(notes, path);
                     return Ok(notes);
                 }
             }
