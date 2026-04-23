@@ -7,4 +7,4 @@ ENV ASPNETCORE_URLS="http://+:5000"
 EXPOSE 5000
 
 #TODO: Replace C#_Start.dll with the actuall file path
-ENTRYPOINT ["dotnet", "BestNote.exe"]
+ENTRYPOINT ["dotnet", "BestNote.dll"]
