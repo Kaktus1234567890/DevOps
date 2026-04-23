@@ -162,31 +162,31 @@ namespace BestNote.Controllers
         }
     }
 
-    public class JsonInteracter
-    {
-        static string path = _fileStorage.GetFilePath("Notizen.json");
-        public static List<BNote> Read()
+        public class JsonInteracter
         {
-            //string fileName = "Notizen.json";
-            string jsonString = File.ReadAllText(path);
-            JsonSerializerOptions options = new JsonSerializerOptions
+            //static string path = _fileStorage.GetFilePath("Notizen.json");
+            public static List<BNote> Read()
             {
-                IncludeFields = true
-            };
+                string fileName = "Notizen.json";
+                string jsonString = File.ReadAllText(fileName);
+                JsonSerializerOptions options = new JsonSerializerOptions
+                {
+                    IncludeFields = true
+                };
 
-            List<BNote>? notize = JsonSerializer.Deserialize<List<BNote>>(jsonString, options);
-            return notize;
-        }
+                List<BNote>? notize = JsonSerializer.Deserialize<List<BNote>>(jsonString, options);
+                return notize;
+            }
 
         public static void Write(List<BNote> notes)
         {
-            //string fileName = "Notizen.json";
+            string fileName = "Notizen.json";
             JsonSerializerOptions options = new JsonSerializerOptions
             {
                 WriteIndented = true
             };
             var json = JsonSerializer.Serialize(notes, options);
-            File.WriteAllText(path, json);
+            File.WriteAllText(fileName, json);
         }
 
         public static FileStream GetFileContent(string file)
