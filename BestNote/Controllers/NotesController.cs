@@ -145,9 +145,10 @@ namespace BestNote.Controllers
 
     public class JsonInteracter
     {
+        static string fileName = "Notizen.json";
         public static List<BNote> Read()
         {
-            string fileName = "Notizen.json";
+            //string fileName = "Notizen.json";
             string jsonString = File.ReadAllText(fileName);
             JsonSerializerOptions options = new JsonSerializerOptions
             {
@@ -160,7 +161,7 @@ namespace BestNote.Controllers
 
         public static void Write(List<BNote> notes)
         {
-            string fileName = "Notizen.json";
+            //string fileName = "Notizen.json";
             JsonSerializerOptions options = new JsonSerializerOptions
             {
                 WriteIndented = true
