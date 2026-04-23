@@ -21,7 +21,7 @@ namespace BestNote.Controllers
     public class NotesController : ControllerBase
     {
         // localhost:44367/api/NotesController
-        List<BNote> notes = new List<BNote>();
+        //List<BNote> notes = new List<BNote>();
         //private readonly NotesContext _db;
         private readonly FileStorage _fileStorage;
         //
@@ -29,7 +29,7 @@ namespace BestNote.Controllers
         public NotesController(FileStorage fileStorage)
         { 
             _fileStorage = fileStorage;
-            notes = JsonInteracter.Read(_fileStorage.GetFilePath("Notizen.json"));
+            //notes = JsonInteracter.Read(_fileStorage.GetFilePath("Notizen.json"));
            
         }
 
@@ -37,12 +37,12 @@ namespace BestNote.Controllers
         public IActionResult CreateNote(BNote2 note)
         {
             var path = _fileStorage.GetFilePath("Notizen.json");
-            var notes = JsonInteracter.Read(path);
+            List<BNote> notes = JsonInteracter.Read(path);
 
             BNote newNote = new(notes.Count, note.titel, note.inhalt);
             
             notes.Add(newNote);
-            JsonInteracter.Write(notes, _fileStorage.GetFilePath("Notizen.json"));
+            JsonInteracter.Write(notes, path);
 
             return CreatedAtAction("GetNote", new { id = newNote.id }, newNote);
         }
@@ -132,7 +132,7 @@ namespace BestNote.Controllers
                 if(n.id == id)
                 {
                     notes.Remove(n);
-                    JsonInteracter.Write(notes, _fileStorage.GetFilePath("Notizen.json"));
+                    JsonInteracter.Write(notes, path);
                     return Ok(notes);
                 }
             }
