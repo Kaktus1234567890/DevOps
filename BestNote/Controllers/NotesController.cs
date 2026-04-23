@@ -38,6 +38,9 @@ namespace BestNote.Controllers
         {
 
             BNote newNote = new(notes.Count, note.titel, note.inhalt);
+            var path = _fileStorage.GetFilePath("Notizen.json");
+            var notes = JsonInteracter.Read(path);
+
             notes.Add(newNote);
             JsonInteracter.Write(notes, _fileStorage.GetFilePath("Notizen.json"));
 
@@ -47,6 +50,8 @@ namespace BestNote.Controllers
         [HttpGet("one")]
         public IActionResult GetNote(long id)
         {
+            var path = _fileStorage.GetFilePath("Notizen.json");
+            var notes = JsonInteracter.Read(path);
 
             BNote note;
             foreach (BNote n in notes)
@@ -64,12 +69,16 @@ namespace BestNote.Controllers
         [HttpGet("all")]
         public IActionResult GetAllNote()
         {
+            var path = _fileStorage.GetFilePath("Notizen.json");
+            var notes = JsonInteracter.Read(path);
             return Ok(notes);
         }
 
         [HttpGet("{*file}", Order = 999)]
         public IActionResult GetAll(string file = null)
         {
+            var path = _fileStorage.GetFilePath("Notizen.json");
+            var notes = JsonInteracter.Read(path);
 
             if (file == null || file == "")
             {
@@ -115,6 +124,8 @@ namespace BestNote.Controllers
         [HttpDelete("{id}")]
         public IActionResult DeleteOne (int id)
         {
+            var path = _fileStorage.GetFilePath("Notizen.json");
+            var notes = JsonInteracter.Read(path);
 
             foreach (BNote n in notes)
             {
