@@ -24,7 +24,7 @@ namespace BestNote.Controllers
         List<BNote> notes = new List<BNote>();
         //private readonly NotesContext _db;
         private readonly FileStorage _fileStorage;
-
+        //
 
         public NotesController(FileStorage fileStorage)
         {
