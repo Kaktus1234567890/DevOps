@@ -206,13 +206,13 @@ namespace BestNote.Controllers
 
         public static void Write(List<BNote> notes, string path)
         {
-            string fileName = "Notizen.json";
+            //string fileName = "Notizen.json";
             JsonSerializerOptions options = new JsonSerializerOptions
             {
                 WriteIndented = true
             };
             var json = JsonSerializer.Serialize(notes, options);
-            File.WriteAllText(fileName, json);
+            File.WriteAllText(path, json);
         }
 
         public static FileStream GetFileContent(string file)
