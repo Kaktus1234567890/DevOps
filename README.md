@@ -1,17 +1,24 @@
 # devops_projekt
 
-A new Flutter project.
+Diese Applikation ist für das Speichern von Notizen.
+So läuft ein Microservice welcher aus einer REST API (geschrieben in C#) besteht.
+Die Schnittstellen dieser erlauben es dem Nutzer eine Notiz oder mehrere  Notizen: 
+- zu erstellen 
+- zu bearbeiten
+- zu löschen
+- auszulesen <br/>
 
-## Getting Started
+Um gewährleisten das die Notizen nach dem schließen erhalten bleiben werden diese nach jeder erfolgreichen Transkation in ein JSON-Datei gespeichert.
 
-This project is a starting point for a Flutter application.
+##### Zum Pullen des Docker-Image des Projektes:
+docker pull ghcr.io/kaktus1234567890/devops:test
 
-A few resources to get you started if this is your first Flutter project:
+##### Anschließend zur Nutzung:
+###### In der Shell
+docker run -p 5000:5000 -v $(pwd)/data:/app/data  -e Data__Directory=/app/data ghcr.io/kaktus1234567890/devops:test
+###### In PowerShell
+docker run -p 5000:5000 -v ${PWD}/data:/app/data  -e Data__Directory=/app/data ghcr.io/kaktus1234567890/devops:test
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+#### Danach kann die folgende URL aufgerufen werden, um zum UI zu kommen:
+http://localhost:5000/api/notes

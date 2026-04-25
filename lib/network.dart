@@ -3,7 +3,7 @@ import 'note.dart';
 import 'package:http/http.dart' as http;
 import 'args.dart';
 
-final String url = 'http://localhost:${NetworkService.port}/api/Notes';
+final String url = '/api/Notes';
 
 Future<http.Response> networkdeleteNote(int id) async {
   final http.Response response = await http.delete(

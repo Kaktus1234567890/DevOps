@@ -21,28 +21,43 @@ namespace BestNote.Controllers
     public class NotesController : ControllerBase
     {
         // localhost:44367/api/NotesController
-        List<BNote> notes = new List<BNote>();
+        //List<BNote> notes = new List<BNote>();
         //private readonly NotesContext _db;
+        private readonly FileStorage _fileStorage;
+        //
 
-        public NotesController(NotesContext db)
-        {
-            notes = JsonInteracter.Read();
+        public NotesController(FileStorage fileStorage)
+        { 
+            _fileStorage = fileStorage;
+            //notes = JsonInteracter.Read(_fileStorage.GetFilePath("Notizen.json"));
+           
         }
 
         [HttpPost]
         public IActionResult CreateNote(BNote2 note)
         {
+            Console.WriteLine("_____CREATE:NOTIZ________");
+            var path = _fileStorage.GetFilePath("Notizen.json");
+            List<BNote> notes = JsonInteracter.Read(path);
 
             BNote newNote = new(notes.Count, note.titel, note.inhalt);
+            
             notes.Add(newNote);
-            JsonInteracter.Write(notes);
 
+            Console.WriteLine($"Note: {newNote}");
+            Console.WriteLine(path);
+
+            JsonInteracter.Write(notes, path);
+
+            Console.WriteLine("_____CREATE:NOTIZ_ENDE________");
             return CreatedAtAction("GetNote", new { id = newNote.id }, newNote);
         }
 
         [HttpGet("one")]
         public IActionResult GetNote(long id)
         {
+            var path = _fileStorage.GetFilePath("Notizen.json");
+            var notes = JsonInteracter.Read(path);
 
             BNote note;
             foreach (BNote n in notes)
@@ -60,12 +75,16 @@ namespace BestNote.Controllers
         [HttpGet("all")]
         public IActionResult GetAllNote()
         {
+            var path = _fileStorage.GetFilePath("Notizen.json");
+            var notes = JsonInteracter.Read(path);
             return Ok(notes);
         }
 
         [HttpGet("{*file}", Order = 999)]
         public IActionResult GetAll(string file = null)
         {
+            var path = _fileStorage.GetFilePath("Notizen.json");
+            var notes = JsonInteracter.Read(path);
 
             if (file == null || file == "")
             {
@@ -111,13 +130,15 @@ namespace BestNote.Controllers
         [HttpDelete("{id}")]
         public IActionResult DeleteOne (int id)
         {
+            var path = _fileStorage.GetFilePath("Notizen.json");
+            var notes = JsonInteracter.Read(path);
 
             foreach (BNote n in notes)
             {
                 if(n.id == id)
                 {
                     notes.Remove(n);
-                    JsonInteracter.Write(notes);
+                    JsonInteracter.Write(notes, path);
                     return Ok(notes);
                 }
             }
@@ -128,13 +149,15 @@ namespace BestNote.Controllers
         [HttpPut("{id}")]
         public IActionResult Update(int id, BNote note)
         {
+            var path = _fileStorage.GetFilePath("Notizen.json");
+            var notes = JsonInteracter.Read(path);
 
             for (int i = 0; i < notes.Count; i++)
             {
                 if (notes[i].id == id)
                 {
                     notes[i] = note;
-                    JsonInteracter.Write(notes);
+                    JsonInteracter.Write(notes, path);
                     return Ok(notes);
                 }
             }
@@ -143,30 +166,53 @@ namespace BestNote.Controllers
         }
     }
 
-    public class JsonInteracter
-    {
-        public static List<BNote> Read()
-        {
-            string fileName = "Notizen.json";
-            string jsonString = File.ReadAllText(fileName);
-            JsonSerializerOptions options = new JsonSerializerOptions
-            {
-                IncludeFields = true
-            };
 
-            List<BNote>? notize = JsonSerializer.Deserialize<List<BNote>>(jsonString, options);
-            return notize;
+    public class FileStorage
+    {
+        private readonly string _dataDir;
+
+        public FileStorage(IConfiguration config)
+        {
+
+            _dataDir = config["Data:Directory"] ?? "/app/data";
+            Directory.CreateDirectory(_dataDir);
+            var filePath = Path.Combine(_dataDir, "Notizen.json");
+
+            if (!File.Exists(filePath))
+            {
+                File.WriteAllText(filePath, "[]");
+            }
         }
 
-        public static void Write(List<BNote> notes)
+        public string GetFilePath(string fileName)
         {
-            string fileName = "Notizen.json";
+            return Path.Combine(_dataDir, fileName);
+        }
+    }
+
+        public class JsonInteracter
+        {
+            public static List<BNote> Read(string path)
+            {
+                string jsonString = File.ReadAllText(path);
+                JsonSerializerOptions options = new JsonSerializerOptions
+                {
+                    IncludeFields = true
+                };
+
+                List<BNote>? notize = JsonSerializer.Deserialize<List<BNote>>(jsonString, options);
+                return notize;
+            }
+
+        public static void Write(List<BNote> notes, string path)
+        {
+            //string fileName = "Notizen.json";
             JsonSerializerOptions options = new JsonSerializerOptions
             {
                 WriteIndented = true
             };
             var json = JsonSerializer.Serialize(notes, options);
-            File.WriteAllText(fileName, json);
+            File.WriteAllText(path, json);
         }
 
         public static FileStream GetFileContent(string file)
@@ -209,3 +255,4 @@ namespace BestNote.Controllers
         }
     }
 }
+
